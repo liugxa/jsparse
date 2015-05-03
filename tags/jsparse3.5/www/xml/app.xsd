@@ -1,0 +1,1546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by o p (abd) -->
+<!-- edited by (Platform Computing Inc.) -->
+<xs:schema xmlns:app="http://www.platform.com/Symphony/Profile/Application" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.platform.com/Symphony/Profile/Application" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xs:annotation>
+        <xs:documentation>
+            This schema describes the configuration file format for the Application Profile. 
+        </xs:documentation>
+    </xs:annotation>
+
+	<xs:element name="Profile">
+		<xs:annotation>
+	        <xs:documentation>
+				The base of the Application Profile.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Consumer">
+					<xs:annotation>
+        				<xs:documentation>
+							Settings related to the resources used by Symphony.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="applicationName" type="xs:normalizedString" use="required">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the application name.
+									The name of the application described by this profile. 
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="consumerId" type="xs:string" use="required">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the consumer ID as defined in Platform EGO.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="resourceGroupName" type="xs:string" use="optional">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the resource group the application is associated with 
+									and from which resources are requested.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="resReq" type="xs:string" use="required">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies a selection string that describes the required resources.
+									"select(select_string)" 
+									"select(select_string) order(order_string)" 
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="policy" use="optional" default="R_Proportion">
+							<xs:annotation>
+            					<xs:documentation>
+									The scheduling policy determines how and when Symphony allocates 
+									resources to run the application.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:normalizedString">
+									<xs:enumeration value="R_Proportion"/>
+									<xs:enumeration value="R_FCFS"/>
+									<xs:enumeration value="R_DataLocality"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="taskHighWaterMark" use="optional" default="1.0">
+							<xs:annotation>
+            					<xs:documentation>
+									For the whole application, specifies the maximum 
+									ratio of unprocessed tasks of open sessions to 
+									CPU slots before more resources are requested in 
+									order to meet the service level requirement of the application.
+									Range: 0.00000 to 9999999999.99999
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minExclusive value="0.0"/>
+									<xs:fractionDigits value="5"/>
+									<xs:totalDigits value="15"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="taskLowWaterMark" use="optional" default="0.0">
+							<xs:annotation>
+            					<xs:documentation>
+									For the whole application, specifies the minimum number of pending 
+									tasks of open sessions per CPU slot before idle resources 
+									are released and made available for other applications to use.
+									Range:  0.00000 to 9999999999.99999
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0.0"/>
+									<xs:fractionDigits value="5"/>
+									<xs:totalDigits value="15"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="resourceBalanceInterval" use="optional" default="5">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the minimum number of seconds between checks to determine 
+									whether the session manager should release unused resources or request 
+									additional resources for the application.
+									Range: 1 or more
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="sessionSchedulingInterval" use="optional" default="500">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the minimum number of milliseconds between checks to 
+									determine whether compute resources need to be reallocated among sessions.
+									Range: 1 or more
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:positiveInteger">
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="applicationLingerTime" use="optional" default="300">
+							<xs:annotation>
+            					<xs:documentation>
+									Add text here.
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="preStartApplication" type="xs:boolean" use="optional" default="false">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies whether the session manager, service instance manager, and service 
+									instances are prestarted when Symphony is started or when an application is enabled.
+									Prestarting the session manager provides quicker response to the first client 
+									request for this application. 
+									Values: true or false
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="numOfPreloadedServices" use="optional" default="1">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the number of service instances that are prestarted if preStartApplication is true.
+									Range: 0 or greater
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:positiveInteger">
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="transientDisconnectionTimeout" use="optional" default="10">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the number of seconds the session manager waits for the 
+									client to reconnect before it aborts the session when the connection 
+									between the client and session manager is broken.
+									Range: 1 or more
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="ssmRecoveryTime" use="optional" default="10">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the number of minutes to wait for the session 
+									manager to recover from an abnormal exit before the resources 
+									in the resource group defined by the Consumer > resourceGroupName 
+									attribute are automatically released by Platform EGO.
+									Range: 1 or more
+								</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="flushDataAsap" type="xs:boolean" use="optional" default="false">
+							<xs:annotation>
+            					<xs:documentation>
+									Add text here.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SOAM" minOccurs="0">
+					<xs:annotation>
+        				<xs:documentation>
+							Options to define the environment running SOAM.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SSM">
+								<xs:annotation>
+            						<xs:documentation>
+										Options to configure the SOAM Service Manager
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType mixed="true">
+									<xs:sequence>
+										<xs:element name="osTypes">
+											<xs:annotation>
+        										<xs:documentation>
+													Configuration of the Operating System options.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="osType" maxOccurs="unbounded">
+														<xs:annotation>
+        													<xs:documentation>
+																Configuration of the Operating System options.
+															</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="env" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+        																<xs:documentation>
+																			Configuration of the operating system environment.
+																		</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:normalizedString">
+																				<xs:attribute name="name" type="xs:normalizedString" use="required">
+																					<xs:annotation>
+            																			<xs:documentation>
+																							Specifies the name of an environment variable to be applied to the process space of an entity.
+																						</xs:documentation>
+																					</xs:annotation>
+																				</xs:attribute>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="name" type="xs:string" use="required">
+																<xs:annotation>
+            														<xs:documentation>
+																		Specifies the relevant operating system environment.
+																		Values: any | LINUX86 | NTX86
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="startCmd" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		Specifies the relative or absolute path to the program executable.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="workDir" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		The default working directories for the session and service managers are:
+		    															* Windows-%SOAM_HOME%\work
+    																	* Linux-$SOAM_HOME/work
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="runAs" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		Add text here.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="boundaryManagerConfig" minOccurs="0">
+											<xs:annotation>
+        										<xs:documentation>
+													Options for configuring the Boundary Manager.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="elementDefinitions" minOccurs="0">
+														<xs:annotation>
+        													<xs:documentation>
+																The various elements of the boundary manager.
+															</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="boundaryElement" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+        																<xs:documentation>
+																			A single element of the boundary manager.
+																		</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="additionalConfig" minOccurs="0" maxOccurs="unbounded">
+																				<xs:annotation>
+        																			<xs:documentation>
+																						Additional configuration for boundary elements.
+																					</xs:documentation>
+																				</xs:annotation>
+																				<xs:complexType>
+																					<xs:attribute name="name" type="xs:string">
+																						<xs:annotation>
+            																				<xs:documentation>
+																								Specifies the name of the system resource that the 
+																								boundary manager monitors on the session manager host.
+																								Values: AvailableMemory | AvailableVirtualAddressSpace
+																							</xs:documentation>
+																						</xs:annotation>
+																					</xs:attribute>
+																					<xs:attribute name="value" type="xs:string">
+																						<xs:annotation>
+            																				<xs:documentation>
+																								Specifies the value of a boundary event as a 
+																								percentage of the entire resource available.
+																								Range: 0 or more
+																							</xs:documentation>
+																						</xs:annotation>
+																					</xs:attribute>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute name="name" type="xs:string">
+																			<xs:annotation>
+            																	<xs:documentation>
+																					Add text here.
+																				</xs:documentation>
+																			</xs:annotation>
+																		</xs:attribute>
+																		<xs:attribute name="description" type="xs:string">
+																			<xs:annotation>
+            																	<xs:documentation>
+																					Add text here.
+																				</xs:documentation>
+																			</xs:annotation>
+																		</xs:attribute>
+																		<xs:attribute name="minValue" type="xs:double">
+																			<xs:annotation>
+            																	<xs:documentation>
+																					Add text here.
+																				</xs:documentation>
+																			</xs:annotation>
+																		</xs:attribute>
+																		<xs:attribute name="maxValue" type="xs:double">
+																			<xs:annotation>
+            																	<xs:documentation>
+																					Add text here.
+																				</xs:documentation>
+																			</xs:annotation>
+																		</xs:attribute>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="boundaries" minOccurs="0">
+														<xs:annotation>
+        													<xs:documentation>
+																The list of boundaries.
+															</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="boundary" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+        																<xs:documentation>
+																			A single boundary element.
+																		</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="event" minOccurs="0" maxOccurs="unbounded">
+																				<xs:annotation>
+        																			<xs:documentation>
+																						An event for a boundary.
+																					</xs:documentation>
+																				</xs:annotation>
+																				<xs:complexType>
+																					<xs:attribute name="name">
+																						<xs:annotation>
+            																				<xs:documentation>
+																								Specifies the name of the boundary event that 
+																								triggers a system response when the value of the 
+																								event is reached.
+																							</xs:documentation>
+																						</xs:annotation>
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="BEV_PROACTIVE"/>
+																								<xs:enumeration value="BEV_SEVERE"/>
+																								<xs:enumeration value="BEV_CRITICAL"/>
+																								<xs:enumeration value="BEV_HALT"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:attribute>
+																					<xs:attribute name="value" type="xs:double">
+																						<xs:annotation>
+            																				<xs:documentation>
+																								Specifies the value of a boundary event as a percentage 
+																								of the entire resource available.
+																								Range: 0 or more
+																							</xs:documentation>
+																						</xs:annotation>
+																					</xs:attribute>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute name="elementName">
+																			<xs:annotation>
+            																	<xs:documentation>
+																					Specifies the name of the system resource that the boundary 
+																					manager monitors on the session manager host.
+																					Values: AvailableMemory | AvailableVirtualAddressSpace
+																				</xs:documentation>
+																			</xs:annotation>
+																			<xs:simpleType>
+																				<xs:restriction base="xs:string"/>
+																			</xs:simpleType>
+																		</xs:attribute>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="globalConfig" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+        													<xs:documentation>
+																Global configuration for the application.
+															</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:attribute name="name">
+																<xs:annotation>
+            														<xs:documentation>
+																		Add text here.
+																	</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="dataCollectionInterval"/>
+																		<xs:enumeration value="memoryReserveInKilobytes"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:attribute>
+															<xs:attribute name="value" type="xs:string">
+																<xs:annotation>
+            														<xs:documentation>
+																		Add text here.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="enabled" type="xs:boolean"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="startUpTimeout" type="xs:positiveInteger" default="60">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of seconds to wait for the session manager to start up before the 
+												process times out and the session director tries again to start a new session manager.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="shutDownTimeout" type="xs:positiveInteger" default="300">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of seconds to wait for the session manager to shut down before the 
+												session director considers it as timed out and restarts the session manager.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="disableFlowControl" type="xs:boolean" default="false">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="resReq" type="xs:string" use="required">
+										<xs:annotation>
+            								<xs:documentation>
+												A resource requirement string describes the criteria for defining a set of resources.
+												Options: select(select_string) | order(order_string)
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="resourceGroupName" type="xs:string" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the resource group the application is associated with and from which resources are requested.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SIM">
+								<xs:annotation>
+            						<xs:documentation>
+										Configuration options for the SIMs.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="osTypes">
+											<xs:annotation>
+            									<xs:documentation>
+													The list of OS types running in the grid.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="osType" maxOccurs="unbounded">
+														<xs:annotation>
+            												<xs:documentation>
+																A single OS type in the grid.
+															</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="env" minOccurs="0" maxOccurs="unbounded">
+																	<xs:annotation>
+            															<xs:documentation>
+																			The environment settings for this OS type.
+																		</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:normalizedString">
+																				<xs:attribute name="name" type="xs:normalizedString" use="required">
+																					<xs:annotation>
+            																			<xs:documentation>
+																							Specifies the name of an environment variable to be applied to the process space of an entity.
+																						</xs:documentation>
+																					</xs:annotation>
+																				</xs:attribute>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="name" type="xs:string" use="required">
+																<xs:annotation>
+            														<xs:documentation>
+																		Specifies the relevant operating system environment.
+																		Values: any | LINUX86 | NTX86
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="startCmd" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		Specifies the relative or absolute path to the program executable.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="workDir" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		Specifies the absolute or relative path to the working directory where 
+																		paging and journaling files are stored on the management hosts on which 
+																		the session managers run. The paths specified here are overridden by paths 
+																		specified by path for journaling and paging files.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="runAs" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		Add text here.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="preExecCmd" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		When using a deployment tool other than soamdeploy, the 
+																		command specified here is used to copy the service program 
+																		to the local host, where the pre-execution command is running.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+															<xs:attribute name="postExecCmd" type="xs:string" use="optional">
+																<xs:annotation>
+            														<xs:documentation>
+																		Add text here.
+																	</xs:documentation>
+																</xs:annotation>
+															</xs:attribute>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="startUpTimeout" type="xs:positiveInteger" use="optional" default="120">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of seconds to wait for the session manager to start up before 
+												the process times out and the session director tries again to start a new session manager.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DataHistory" minOccurs="0">
+								<xs:annotation>
+            						<xs:documentation>
+										Settings on handling data history.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:attribute name="pollFrequency" use="optional" default="10">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the frequency, in seconds, at which the history files are polled to determine 
+												if the current file should be archived.
+												Range: 1 to 10 (inclusively)
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="10"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="fileSwitchTime" use="optional" default="24">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum number of hours that can elapse before the 
+												history file is archived at the next poll.
+												Range: 1 to 168 (1 week)
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="168"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="fileSwitchSize" use="optional" default="100">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum size, in megabytes, the history file can reach 
+												before the file is archived at the next poll.
+												Range: 1 to 100 (inclusively)
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="lastingPeriod" use="optional" default="96">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of hours the archived history files are retained.
+												The archived history files are deleted when the lasting period has expired. 
+												Range: 1 to 168 (1 week)
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="168"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="lastingPeriodInSeconds" type="xs:positiveInteger" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="path" type="xs:string" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the directory where the files are stored.
+												The path to the file can be specified as a relative or 
+												absolute path. The path name must be enclosed in 
+												double quotes (" ") if any part of the path contains spaces. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="delimiter" type="xs:string" use="optional" default=",">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PagingTasksInput" minOccurs="0">
+								<xs:annotation>
+            						<xs:documentation>
+										Configuration for handling paging for input.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="PagingMode" minOccurs="3" maxOccurs="3">
+											<xs:annotation>
+            									<xs:documentation>
+													The configuration for the paging mode.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:attribute name="name" type="xs:normalizedString" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="readPriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="writePriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="removePriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the directory where the files are stored.
+												The path to the file can be specified as a relative 
+												or absolute path. The path name must be enclosed in double 
+												quotes (" ") if any part of the path contains spaces. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="4096">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of bytes per block.
+												The block size should be large enough to contain the largest message. If the 
+												block size is not large enough, the data is spread across multiple blocks, 
+												which can slow down the paging processes. 
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="4294967296">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum amount of disk space dedicated to paging task input messages.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="4194304">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum number of bits in memory available to track storage availability. 
+												One bit represents one block of disk space. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PagingTasksOutput" minOccurs="0">
+								<xs:annotation>
+            						<xs:documentation>
+										Configuration for handling paging for task output.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="PagingMode" minOccurs="3" maxOccurs="3">
+											<xs:annotation>
+            									<xs:documentation>
+													Configuration for the paging mode.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:attribute name="name" type="xs:normalizedString" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="readPriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="writePriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="removePriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the directory where the files are stored.
+												The path to the file can be specified as a relative 
+												or absolute path. The path name must be enclosed in double 
+												quotes (" ") if any part of the path contains spaces. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="4096">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of bytes per block.
+												The block size should be large enough to contain the largest message. If the 
+												block size is not large enough, the data is spread across multiple blocks, 
+												which can slow down the paging processes. 
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="4294967296">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum amount of disk space dedicated to paging task output messages.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="4194304">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum number of bits in memory available to track storage availability. 
+												One bit represents one block of disk space. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PagingCommonData" minOccurs="0">
+								<xs:annotation>
+            						<xs:documentation>
+										Configuration for paging the common data sent to services.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="PagingMode" minOccurs="3" maxOccurs="3">
+											<xs:annotation>
+            									<xs:documentation>
+													The mode that the paging will use.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:attribute name="name" type="xs:normalizedString" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="readPriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="writePriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="removePriority" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the directory where the files are stored.
+												The path to the file can be specified as a relative 
+												or absolute path. The path name must be enclosed in double 
+												quotes (" ") if any part of the path contains spaces. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="4096">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of bytes per block.
+												The block size should be large enough to contain the largest message. If the 
+												block size is not large enough, the data is spread across multiple blocks, 
+												which can slow down the paging processes. 
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="4294967296">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum amount of disk space dedicated to paging task common data messages.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="4194304">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum number of bits in memory available to track storage availability. 
+												One bit represents one block of disk space. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="JournalingTasks" minOccurs="0">
+								<xs:annotation>
+            						<xs:documentation>
+										Configuration for the journaling system.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the directory where the files are stored.
+												The path to the file can be specified as a relative 
+												or absolute path. The path name must be enclosed in double 
+												quotes (" ") if any part of the path contains spaces. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="256">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of bytes per block.
+												The block size should be large enough to contain the largest message. If the 
+												block size is not large enough, the data is spread across multiple blocks, 
+												which can slow down the paging processes. 
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="1073741824">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum amount of disk space dedicated to paging journaling tasks.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="2000000">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum number of bits in memory available to track storage availability. 
+												One bit represents one block of disk space. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="JournalingSessions" minOccurs="0">
+								<xs:annotation>
+            						<xs:documentation>
+										Configuration for the journaling sessions.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the directory where the files are stored.
+												The path to the file can be specified as a relative 
+												or absolute path. The path name must be enclosed in double 
+												quotes (" ") if any part of the path contains spaces. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="2048">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of bytes per block.
+												The block size should be large enough to contain the largest message. If the 
+												block size is not large enough, the data is spread across multiple blocks, 
+												which can slow down the paging processes. 
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="536870912">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum amount of disk space dedicated to paging journaling sessions.
+												Range: 1 or more
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="10000">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the maximum number of bits in memory available to track storage availability. 
+												One bit represents one block of disk space. 
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SessionTypes" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+            			<xs:documentation>
+							Options for the types of sessions.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Type" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+            						<xs:documentation>
+										Options for a specific type of session.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:attribute name="name" type="xs:string" use="required">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the session type name used when the client creates a session.
+												Identifies sessions, as in soamview session, associated with this application.
+												Range: 1-256 alphanumeric characters, including all printable characters.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute> 
+									<xs:attribute name="priority" use="optional" default="1">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the session priority, where 1 is the lowest priority and 10000 is the highest priority. 
+												Session priority determines how resources are assigned to sessions.
+												Range: 1 to 10000
+											</xs:documentation>
+										</xs:annotation>									
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="10000"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="recoverable" type="xs:boolean" use="optional" default="false">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies whether the session can be recovered if the session manager is recovered.
+												If true, the data for completed tasks and other session information is retained in 
+												order to attempt to recover the session in a failover situation. 
+												Values: true | false
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="sessionRetryLimit" use="optional" default="3">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of times the session can retry binding to the service before the session is aborted.
+												Range: 0 or more
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="taskRetryLimit" use="optional" default="3">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of attempts to run a task before it is considered to have failed.
+												Range: 0 or more
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="taskGracePeriod" use="optional" default="100">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of milliseconds to allow tasks of a session to continue to run 
+												when the relevant session has been targeted for suspension by the system or a user. 
+												If the task completes during this period, it sends back its results.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="taskCleanupPeriod" use="optional" default="250">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies the number of milliseconds to allow the tasks of a 
+												session to continue to run and cleanup when the relevant session 
+												has been targeted to be aborted by the system or a user. When the 
+												taskCleanup period expires, the tasks of the relevant session are 
+												canceled and the session is aborted.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="abortSessionIfTaskFail" type="xs:boolean" use="optional" default="false">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies whether the session is aborted if a task fails.  
+												If true, the session is terminated, and session workload and any related output is removed.
+												If false, the session continues processing after the task fails.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="abortSessionIfClientDisconnect" type="xs:boolean" use="optional" default="true">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies whether the session is aborted if the session manager detects that the connection 
+												between the client and the session manager is broken.
+												If true, and the connectionIdleTimeout expires, the session is terminated and session workload 
+												and any related output is removed.
+											    If false, and the connectionIdleTimeout expires, session workload is retained and an attempt is 
+												made to recover the session when the client reconnects.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="persistSessionHistory" use="optional" default="all">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies whether to persist all or no session history, all or none.  
+												If any form of task history is retained, session history must also be retained. 
+												Values: none | all
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:normalizedString">
+												<xs:enumeration value="none"/>
+												<xs:enumeration value="all"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="persistTaskHistory" use="optional" default="error">
+										<xs:annotation>
+            								<xs:documentation>
+												Specifies whether to retain no, all, or error only task history for tasks of a finished session.  
+												None-Does not persist task history.  
+												All-Persists history for all tasks. 
+												Error-Persists history only for tasks that end in error.
+											</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:normalizedString">
+												<xs:enumeration value="none"/>
+												<xs:enumeration value="all"/>
+												<xs:enumeration value="error"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="discardResultsOnDelivery" type="xs:boolean" use="optional" default="true">
+										<xs:annotation>
+            								<xs:documentation>
+												Add text here.
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Service" maxOccurs="unbounded">
+					<xs:annotation>
+            			<xs:documentation>
+							Configuration for the services.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="osTypes">
+								<xs:annotation>
+									<xs:documentation>
+										The types of operating systems.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="osType" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>
+													Configuration for a specific OS.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="env" minOccurs="0" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>
+																The environment configuration for the OS.
+															</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:normalizedString">
+																	<xs:attribute name="name" type="xs:normalizedString" use="required">
+																		<xs:annotation>
+            																<xs:documentation>
+																				Specifies the name of an environment variable to be applied to the process space of an entity.
+																			</xs:documentation>
+																		</xs:annotation>
+																	</xs:attribute>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:normalizedString" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the relevant operating system environment.
+															Symphony supports: Any-Either a Linux-based or Windows-based environment. 
+															LINUX86-A Linux-based environment, such as RedHat Linux.  
+															NTX86-A Windows-based environment, such as Windows 2000, Windows NT, and Windows XP.  
+															User-defined operating-system types, defined in the ego.shared file.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="startCmd" type="xs:string" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the relative or absolute path to the program executable.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="workDir" type="xs:string" use="optional">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the absolute or relative path on the compute host, or 
+															a shared location, to the directory in which the service creates 
+															files. A relative path is relative to SOAM_HOME.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="packageUrl" type="xs:normalizedString" use="optional">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="runAs" type="xs:normalizedString" use="optional">
+													<xs:annotation>
+            											<xs:documentation>
+															Add text here.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="preExecCmd" type="xs:string" use="optional">
+													<xs:annotation>
+            											<xs:documentation>
+															When using a deployment tool other than soamdeploy, 
+															the command specified here is used to copy the service 
+															program to the local host, where the pre-execution command is running.
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Control" minOccurs="0">
+								<xs:annotation>
+            						<xs:documentation>
+										Configuration for control options.
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Timeout" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+            									<xs:documentation>
+													Timeout options.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:attribute name="method" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the Symphony API method to monitor for response time or control codes.
+															If the service times out during Invoke, the service is restarted. 
+															For all other methods, the host is blocked.
+															Values: CreateService | DestroyService | Invoke | Register | SessionEnter | SessionLeave
+														</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:normalizedString">
+															<xs:enumeration value="Register"/>
+															<xs:enumeration value="CreateService"/>
+															<xs:enumeration value="DestroyService"/>
+															<xs:enumeration value="SessionEnter"/>
+															<xs:enumeration value="SessionLeave"/>
+															<xs:enumeration value="Invoke"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="duration" type="xs:positiveInteger" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the number of seconds to wait for method completion before the service times out.
+															Range: 1 or more
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ControlCode" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+            									<xs:documentation>
+													Options to configure control monitors.
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:attribute name="method" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the Symphony API method to monitor for response time or control codes.
+															The action taken for the method is specified by the application profile action attribute.
+															Values: CreateService | DestroyService | Invoke | Register | SessionEnter | SessionLeave
+														</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:normalizedString">
+															<xs:enumeration value="Register"/>
+															<xs:enumeration value="CreateService"/>
+															<xs:enumeration value="DestroyService"/>
+															<xs:enumeration value="SessionEnter"/>
+															<xs:enumeration value="SessionLeave"/>
+															<xs:enumeration value="Invoke"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="code" type="xs:integer" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the code the method returns.  This control code is returned 
+															through the Symphony API SessionContext::SetControlCode method. An 
+															action the system performs for each control code must be specified in 
+															the application profile action attribute. 
+														</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="action" use="required">
+													<xs:annotation>
+            											<xs:documentation>
+															Specifies the action to perform when a method programmatically returns 
+															a particular code through the Symphony API SessionContext::SetControlCode method.
+															Values: Restart
+														</xs:documentation>
+													</xs:annotation>
+													<xs:simpleType>
+														<xs:restriction base="xs:normalizedString">
+															<xs:enumeration value="Restart"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:normalizedString" use="required">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies a character string that names the service.
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="description" type="xs:string" use="optional">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies a character string that describes the service..
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="deploymentTimeout" type="xs:positiveInteger" use="optional">
+							<xs:annotation>
+            					<xs:documentation>
+									Specifies the maximum time required to connect to the repository server 
+									and the maximum time required to download a file from the repository server.
+									Specify the value in seconds. 
+									Range: 1-2147483647
+								</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:choice minOccurs="0" maxOccurs="2">
+					<xs:element name="Version" type="xs:string" minOccurs="0">
+						<xs:annotation>
+            				<xs:documentation>
+								The version identifier.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ApplicationProfileGuid" type="xs:string" minOccurs="0">
+						<xs:annotation>
+            				<xs:documentation>
+								The application profile GUID.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:normalizedString" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

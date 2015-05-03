@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<HTML xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+<HEAD>
+<TITLE></TITLE>
+<link REL='Stylesheet' HREF='css/base.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/configProfileXml.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/configProfile.css' TYPE='text/css'/>
+<!-- The following imported external css documents together work around an ie issue,
+	 and provide formatting for standard parts of secondary (popup) windows. -->
+<style type="text/css" media="screen">
+	@import "css/secondaryWindows.css";
+</style>
+<!--[if IE]>
+	<link href="css/secondaryWindows_fix_ie.css" rel="stylesheet" type="text/css" media="screen">
+<![endif]-->
+</HEAD>
+<BODY> 
+
+<!-- BEGIN Standard container for content in a secondary window -->
+<div class="popupStandardContent">
+<form id="myForm" action="null.cgi">
+	
+	<!-- BEGIN Standard head for secondary window -->
+	<div class="popupStandardHead">
+		<h1>Service Definition Profile</h1>
+	</div>
+	<!-- END Standard head for secondary window -->
+
+	<!-- BEGIN "Admin" content -->
+	<div class="pageAdmin">
+		<p><a href="#" class="embeddedHelpDisabled" onclick="toggleHelpState(this)">Show Field Help</a></p>
+		<p><a href="#" class="showTablePrefs" onclick="showXmlTablePreferences()">Table Preferences</a></p>
+	</div>
+	<!-- END "Admin" content -->
+
+	<!-- BEGIN Column control -->
+	<!-- Note: I still need to finalize the presentation of the control for setting the visibility of the columns.
+		 The radio buttons are OK for now, but are not a good long-term solution. I will come up with a better one after 
+		 hand-over if that's acceptable. -->
+
+	<div id="xmlTablePreferencesId" class="xmlTablePreferences" style="display: none">
+	
+		<h2>Show checked columns</h2>
+	
+		<label for="showDefaults">
+		<input type="checkbox" id="showName" checked="checked" disabled="disabled" name="checkbox" value="showDefaults" onclick="" />
+		Name</label>
+		
+		<label for="showDefaults">
+		<input type="checkbox" id="showValue" checked="checked" disabled="disabled" name="checkbox" value="showDefaults" onclick="" />
+		Value</label>
+		
+		<label for="showDefaults">
+		<input type="checkbox" id="showDefaults" name="checkbox" value="showDefaults" onclick="" />
+		Default values</label>
+		
+		<label for="showRequirements">
+		<input type="checkbox" id="showRequirements" name="checkbox" value="showRequirements" onclick="" />
+		Requirements</label>
+		
+		<label for="showSource">
+		<input type="checkbox" id="showSource" name="checkbox" value="showSource" onclick="" />
+		Source</label>
+
+		<label for="showActions">
+		<input type="checkbox" id="showActions" name="checkbox" value="showActions" onclick="" />
+		Actions</label>
+		
+		<button type="button" onclick="xtpExecute()">Done</button>
+	</div>
+	
+	<!--
+	<div id="xmlTablePreferencesId">	
+
+		<label for="showName" style="font-size: .75em">
+		<input type="checkbox" id="showName" checked="checked" disabled="disabled" name="checkbox" value="showName"  onclick="hidenOrShowColumn(this , 1);" />
+		Show name column</label>
+		
+		<label for="showValue" style="font-size: .75em">
+		<input type="checkbox" id="showValue" checked="checked" disabled="disabled" name="checkbox" value="showValue" onclick="hidenOrShowColumn(this , 2);" />
+		Show value column</label>
+
+		<label for="showDefaults" style="font-size: .75em">
+		<input type="checkbox" id="showDefaults" name="checkbox" value="showDefaults" onclick="hidenOrShowColumn(this , 3);" />
+		Show default values column</label>
+
+		<label for="showRequirements" style="font-size: .75em">
+		<input type="checkbox" id="showRequirements" name="checkbox" value="showRequirements" checked onclick="hidenOrShowColumn(this , 4);" />
+		Show requirements column</label>
+
+		<label for="showSource" style="font-size: .75em">
+		<input type="checkbox" id="showSource" name="checkbox" value="showSource" onclick="hidenOrShowColumn(this , 5);" />
+		Show source column</label>
+
+		<label id="labShowActions" for="showActions" style="font-size: .75em">
+		<input type="checkbox" id="showActions" name="checkbox" value="showActions" checked onclick="hidenOrShowColumn(this , 6);" />
+		Show Actions column</label>
+	</div>
+	-->
+
+	<!-- BEGIN View of Objects -->
+	<div id="contentObjectsId" class="appProfileDisplay" style="padding-left: 0px !important; clear: both">
+			<table id="serviceDefinitionProfile" class="appProfileDisplay" border="0" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+					  <th scope="col" style="border:none">&nbsp;</th>
+					  <th scope="col">Name</th>
+					  <th scope="col" class="paramValue">Value</th>
+					  <th scope="col" class="paramValueDefault">Default Value </th>
+					  <th scope="col" class="paramRequirements">Requirements</th>
+					  <th scope="col" class="paramSource">Source </th>
+					  <th scope="col" class="paramActions">Actions</th>
+					</tr>
+				</thead>
+				<!-- This table information will be printed by schema2HtmlForm.js -->
+				<tbody id="Consumer"></tbody>	
+			</table>
+	</div>
+</form>
+</div>
+<!-- END Standard container for content in a secondary window -->
+
+
+<!-- BEGIN Standard controls for secondary window -->
+<div class="popupStandardWindowControls">
+<BUTTON id='btSave' 	onclick='setButtonState("disabled");saveServiceXml(this);'	class="button-disabled" disabled="disabled"  name='buttonCreate'>Apply</BUTTON>
+<BUTTON id="btRevert" 	onclick='setButtonState("disabled");revertServiceXml(this);' class="button-disabled" disabled="disabled" name="buttonRevert">Revert</button>
+<BUTTON id='btImport' 	onclick='importServiceXml(this);' class="" name='buttonImport'>Import</BUTTON>
+<BUTTON id='btExport' 	onclick='exportServiceXml(this);' class="" name='buttonExport'>Export</BUTTON>
+<BUTTON id='btClose' 	onclick='self.close()'	name='buttonClose'>Close</BUTTON>
+</div>
+<!-- END Standard controls for secondary window -->
+
+<SCRIPT language=JavaScript src="script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/validate.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/overlib_mini.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/domtree.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="js/xmleditor.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="js/xmleditor-functions.js" type=text/JavaScript></SCRIPT>
+
+<script>
+var s2f = initilize();
+//*******************************************************************************
+//init methods
+//*******************************************************************************
+function initilize(){
+	try{
+		//initilize domtree
+		var context = _getContext();
+		var domTree = new DefaultDomTree(context);
+		domTree.init("sc:ServiceDefinition");
+
+		var tbody = document.getElementById("serviceDefinitionProfile").tBodies[0];		
+		s2f = new ServiceDefinitionS2H(domTree , tbody , "images/");
+		s2f.addRequiredDefaultValues("ego:ConsumerID" , "/EGOService");
+		s2f.addRequiredDefaultValues("ego:Attribute:name" , "hostType");
+		s2f.addRequiredDefaultValues("ego:Attribute:type" , "xsd:string");
+		s2f.addRequiredDefaultValues("ego:Command" , "sleep 100");
+		s2f.addRequiredDefaultValues("ego:Umask" , "0777");
+
+		//s2f.addRequiredDefaultValues("ego:Attribute:content" , "all");
+		//s2f.addRequiredDefaultValues("ego:Rlimit:content" , "all");
+
+		s2f.addNotEditColumn("ego:ConsumerID");
+		s2f.addNotEditColumn("ego:Attribute:name");
+		s2f.addNotEditColumn("ego:Attribute:type");
+		s2f.addNotEditColumn("ego:ActivityName");
+
+		s2f.layout(true);
+
+		//set button useableless
+		setButtonState("disabled");
+		return s2f;
+	}catch(e){
+		alertException(e);
+	}
+}
+
+function _getContext(){
+	var XML_FILE	= "xml/xml/sample.xml";
+	var SCHEMA_FILE = "xml/schema/sc.xsd";
+	var SCHEMA_REF_FILE = "xml/schema/ego.xsd";
+
+	var context = new DefaultDomTreeContext(true);
+	context.initilize(XML_FILE , SCHEMA_FILE , "sc" , "xsd");
+	context.addRefParse(SCHEMA_REF_FILE  , "ego" , "xsd");
+
+	return context;
+}
+
+function doSpecialThings(){
+	//if the parameter "canEdit" is true, show action column. Otherwise don't show it!
+	if(s2f.isEditable() != true){
+
+		//remove "Apply" & "Revert" & "Import" button
+		var btns = ["btSave" , "btRevert" , "btImport"];
+		for(var i=0;i<btns.length;i++){
+			var btn = document.getElementById(btns[i]);
+			if(btn != null) btn.style.display = "none";
+		}
+	}
+}
+
+function setNotModifyElements(){
+	
+	s2f.addNotEditColumn("sc:Version");
+	s2f.addNotEditColumn("ego:ConsumerID");
+	s2f.addNotEditColumn("sc:AllocationSpecification:AllocationName");
+	s2f.addNotEditColumn("sc:ResourceSpecification:ResourceType");
+	s2f.addNotEditColumn("ego:Attribute:name");
+	s2f.addNotEditColumn("ego:Attribute:type");
+	
+	//if update the service, user should not modify the service's name;
+	if(oper != "create") s2f.addNotEditColumn("sc:ServiceDefinition:ServiceName");
+
+}
+
+function setRequiredDefaultValues(){
+	s2f.addRequiredDefaultValues("ego:ConsumerID" , consumerPath);
+	s2f.addRequiredDefaultValues("ego:Attribute:name" , "hostType");
+	s2f.addRequiredDefaultValues("ego:Attribute:type" , "xsd:string");
+	s2f.addRequiredDefaultValues("ego:Attribute:content" , "all");
+	s2f.addRequiredDefaultValues("ego:Command" , "sleep 100");
+	s2f.addRequiredDefaultValues("ego:Umask" , "0777");
+}
+</script>
+
+</BODY>
+</HTML>

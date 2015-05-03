@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sc:ServiceDefinition xmlns:sc="http://www.platform.com/vem/2005/05/schema/sc" xmlns:vem="http://www.pla/www.platform.com/vem/2005/05/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.platform.com/vem/2005/05/schema/sc ../sc.xsd http://www.platform.com/vem/2005/05/schema ../vem.xsd" ServiceName="WEBGUI">
+  <sc:Version>1.1</sc:Version>
+  <sc:Description></sc:Description>
+  <sc:MinInstances>1</sc:MinInstances>
+  <sc:MaxInstances>1</sc:MaxInstances>
+  <sc:Priority>100</sc:Priority>
+  <sc:MaxInstancesPerSlot>1</sc:MaxInstancesPerSlot>
+  <sc:ControlPolicy>
+    <sc:StartType>AUTOMATIC</sc:StartType>
+    <sc:MaxRestarts>10</sc:MaxRestarts>
+    <sc:HostFailoverInterval>60s</sc:HostFailoverInterval>
+  </sc:ControlPolicy>
+  <vem:AllocationSpecification>
+    <vem:ConsumerID>/ManagementServices/EGOServices</vem:ConsumerID>
+<!--The ResourceType specifies a "compute element" identified by the URI used below-->
+    <vem:ResourceSpecification ResourceType="http://www.platform.com/vem/2005/05/schema/ce">
+      <vem:ResourceGroupName>ManagementHosts</vem:ResourceGroupName>
+      <vem:ResourceRequirement></vem:ResourceRequirement>
+    </vem:ResourceSpecification>
+  </vem:AllocationSpecification>
+  <sc:ActivityDescription>
+    <vem:Attribute name="hostType" type="xsd:string">all</vem:Attribute>
+    <vem:ActivitySpecification>
+      <vem:EnvironmentVariable name="PREFERENCE_CONF">@PREFERENCE_CONF@</vem:EnvironmentVariable>
+      <vem:EnvironmentVariable name="JAVA_HOME">@JAVA_HOME@</vem:EnvironmentVariable>
+      <vem:EnvironmentVariable name="EGO_TOP">@EGO_TOP@</vem:EnvironmentVariable>
+      <vem:EnvironmentVariable name="PERF_CONF">@PERF_CONF@</vem:EnvironmentVariable>
+      <vem:EnvironmentVariable name="@LIB_PATH_NAME@">@LIB_PATH@</vem:EnvironmentVariable>
+      <!-- The env LSF_ENVDIR, LSF_SERVERDIR and LD_LIBRARY_PATH  are for LSF  -->
+      <vem:EnvironmentVariable name="LSF_ENVDIR">@LSF_ENVDIR@</vem:EnvironmentVariable>
+      <vem:EnvironmentVariable name="LSF_SERVERDIR">@LSF_SERVERDIR@</vem:EnvironmentVariable>
+      <vem:Command>@STARTUPSCRIPT@</vem:Command>
+      <vem:RunAsOSUser>@ADMINUSER@</vem:RunAsOSUser>
+      <vem:WorkingDirectory>@WORKDIR@</vem:WorkingDirectory>
+      <vem:Umask>022</vem:Umask>
+    </vem:ActivitySpecification>
+  </sc:ActivityDescription>
+</sc:ServiceDefinition>

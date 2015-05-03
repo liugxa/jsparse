@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://www.platform.com/Symphony/Profile/Application" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.platform.com/Symphony/Profile/Application
+F:\projects\xmlproject\ApplicationProfile.xsd">
+	<Consumer consumerId="consumerId001" resReq="resReq" applicationName="applicationName" policy="R_Proportion" taskLowWaterMark="0.0"/>
+	<Service name="serviceName0">
+		<osTypes>
+			<osType startCmd="" name=""/>
+			<osType startCmd="" name=""/>
+		</osTypes>
+		<Control>
+		</Control>
+	</Service>
+</Profile>

@@ -1,0 +1,203 @@
+/* ------------------------------------------------------------------------ */
+/* Format standard HTML tags for use in all Platform apps */
+/* ------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------ */
+/* High-level structural tags */
+
+html {
+	padding: 0px;
+	margin: 0px;
+}
+body, p, h1, h2, h3, h4, select, li, address, button, input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+body {
+	background-color: #FFFFFF;
+	margin: 10px;
+	padding: 0px;
+}
+div {
+	padding: 0px;
+	margin: 0px;
+}
+
+
+/* ------------------------------------------------------------------------ */
+/* Text tags */
+
+p {
+	font-size: 0.7em;
+	line-height: 120%;
+	padding: 0px;
+	padding-bottom: 0.75em;
+	margin: 0px;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #333333;
+	margin: 0px;
+	padding: 0px;
+}
+h1 {
+	font-size: 1em;
+}
+h2 {
+	font-size: 0.85em;
+}
+h3, h4, h5, h6 {
+	font-size: 0.7em;
+}
+
+
+/* ------------------------------------------------------------------------ */
+/* Form tags */
+
+form {
+	padding: 0px;
+	margin: 0px;
+}
+fieldset {
+	padding: 0px;
+	margin: 0px;
+}
+fieldset legend {
+	font-size: .7em;
+	font-weight: bold;
+	color: #000000;
+	padding: 0px;
+	margin: 0px;
+}
+
+select {
+	font-size: 0.7em;
+	background-color: #FFFFE6;
+	margin: 0px;
+	padding: 0px;
+	color: #000000;
+	border: 1px solid #999999;
+}
+select.select-disabled {
+	font-size: 0.7em;
+	background-color: #F0F0F3 !important;
+	margin: 0px;
+	padding: 0px;
+	color: #A6A6A8 !important;
+	border: 1px solid #999999;
+}
+
+input,
+input.input-checkbox,
+input.input-radio,
+input.input-text,
+input.input-password,
+textarea {
+	margin: 0px;
+	padding: 0px;
+}
+
+input.input-text,
+input.input-password,
+textarea {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #FFFFE6;
+	border: 1px solid #333333;
+	color: #000000;
+}
+input.input-text-disabled,
+input.input-password-disabled,
+textarea.textarea-disabled {
+	font-size: 0.7em;
+	padding: 1px;
+	color: #333333!important;
+	background-color: #F3F3F3 !important;
+	border: 1px solid #999999;
+}
+input.input-text-readonly,
+input.input-password-readonly,
+textarea.textarea-readonly {
+	font-size: 0.7em;
+	padding: 1px;
+	color: #333333!important;
+	background-color: #F0FAFF!important;
+	border: 1px solid #999999;
+}
+textarea,
+textarea.textarea-disabled,
+textarea.textarea-readonly {
+	font-size: 0.95em;
+}
+
+
+button {
+	font-size: 0.7em;
+	font-weight: bold;
+	background-color: #FFFFE6;
+	color: #000000;
+	margin: 0px;
+	padding: 0px;
+	margin-top: 3px;
+	margin-right: 6px;
+	border-style: solid;
+	border-top-color: #aaaaaa;
+	border-left-color: #aaaaaa;
+	border-right-color: #444444;
+	border-bottom-color: #444444;
+	border-width: 2px;
+}
+button.button-disabled {
+	background-color: #F3F3F3;
+	color: #999999;
+}
+label.label-checkbox-disabled {
+	color: #999999;
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* List tags */
+
+ul {
+	padding: 0px;
+	margin: 0px;
+	padding-right: 1em;
+}
+li {
+	font-size: 0.7em;
+	padding: 0px;
+	margin: 0px;
+	padding-right: 1em;
+	padding-bottom: 0.75em;
+	margin-left: 1em;
+	line-height: 180%;
+	list-style-type: square;
+}
+address {
+	font-size: 0.8em;
+	padding: 0px;
+	margin: 0px;
+	padding-bottom: 0.75em;
+	line-height: 130%;
+	font-variant: normal;
+}
+/* ------------------------------------------------------------------------ */
+/* Standard HTML link appearance */
+
+a:link {
+	color: #0000FF;
+	text-decoration: underline;
+}
+a:visited {
+	color: #0000FF;
+	text-decoration: underline;
+}
+a:hover {
+	color: #6565FF;
+	text-decoration: underline;
+}
+a:active {
+	color: #0000FF;
+	text-decoration: underline;
+}

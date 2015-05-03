@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ego="http://www.platform.com/ego/2005/05/schema" xmlns:sc="http://www.platform.com/ego/2005/05/schema/sc" targetNamespace="http://www.platform.com/ego/2005/05/schema/sc" elementFormDefault="qualified">
+    <xsd:annotation>
+        <xsd:documentation>
+            This schema describes the configuration file format for the EGO Service Controller. 
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:import namespace="http://www.platform.com/ego/2005/05/schema" schemaLocation="ego.xsd"/>
+    <xsd:element name="Description" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation>
+                A human readable string used to provide some extra information about
+                this service instance.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="HeartbeatInterval" type="xsd:duration">
+        <xsd:annotation>
+            <xsd:documentation>
+                How often the EGO Service Controller checks whether a service instance is hung.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="HostFailoverInterval" type="xsd:duration">
+        <xsd:annotation>
+            <xsd:documentation>
+                Host Failover Interval.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="MinInstances">
+        <xsd:annotation>
+            <xsd:documentation>
+                The minimum number of service instances (each instance mapping to an 
+                Activity) required to run this service.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="2147483647"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="MaxInstances">
+        <xsd:annotation>
+            <xsd:documentation>
+                The maximum number of service instances required to run this service.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="2147483647"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="MaxMissedHeartbeats">
+        <xsd:annotation>
+            <xsd:documentation>
+                The maximum number of times that a heartbeat can be missed from a given 
+                service instance, before it is considered hung.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="0"/>
+                <xsd:maxInclusive value="2147483647"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="MaxRestarts">
+        <xsd:annotation>
+            <xsd:documentation>
+                How many times a service instance should be restarted (on another resource
+                possibly) before it is flagged in an error state.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="0"/>
+                <xsd:maxInclusive value="2147483647"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="Priority">
+        <xsd:annotation>
+            <xsd:documentation>
+                A number that represents the relative ordering of startup of services 
+                at EGO Service Controller startup time.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="2147483647"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="StartOnBoot" type="xsd:boolean">
+        <xsd:annotation>
+            <xsd:documentation>
+                Indicates whether the EGO Service Controller should start this service
+                when it starts, or whether it should be left to be started on demand.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="Version" type="xsd:string">
+        <xsd:annotation>
+            <xsd:documentation>
+                Service Controller Service Definition Version
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="NeedCredential" type="xsd:boolean">
+        <xsd:annotation>
+            <xsd:documentation>
+                NeedCredential means that the service instance needs the credential
+                of EGO clusteradmin. When it is defined, SC will transfer it through
+                enviroment variable EGO_SERVICE_CREDENTIAL into service instance.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="StartType">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="AUTOMATIC"/>
+                <xsd:enumeration value="MANUAL"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:simpleType name="DependencyTypeEnumeration">
+        <xsd:annotation>
+            <xsd:documentation>
+                This enumeration type is used to identify the different types of dependencies.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="OnStart"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="Dependency">
+        <xsd:annotation>
+            <xsd:documentation>
+                This element is used to indicate that there is a dependency on another service.
+                The type attribute of the element is used to describe the dependency type, and
+                the content of the element holds the name of the service that is being depended
+                on.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                    <xsd:attribute name="type" type="sc:DependencyTypeEnumeration" use="required"/>
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ControlPolicy">
+        <xsd:annotation>
+            <xsd:documentation>
+                The ControlPolicy is used to describe the service lifecycle parameters of a service
+                definition. It's used to define parameters for startup (StartOnBoot and Dependency),
+                restart parameters (MaxRestarts), and parameters for the detection of hung services
+                (HeartbeatInterval and MaxMissedHeardbeats).
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="sc:StartType"/>
+                <xsd:element ref="sc:MaxRestarts" minOccurs="0"/>
+                <xsd:element ref="sc:HeartbeatInterval" minOccurs="0"/>
+                <xsd:element ref="sc:MaxMissedHeartbeats" minOccurs="0"/>
+                <xsd:element ref="sc:HostFailoverInterval" minOccurs="0"/>
+                <xsd:element ref="sc:Dependency" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ActivityDescription">
+        <xsd:annotation>
+            <xsd:documentation>
+                An ActivityDescription ties a particular ActivitySpecification to resources that 
+                match given attributes. For example, on a compute host type of resource, you might
+                use the hostType attribute to restrict an ActivitySpecification to hosts with
+                a hostType of "LINUXResourceSpeci86".
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ego:Attribute" maxOccurs="1"/>
+                <xsd:element ref="ego:ActivitySpecification"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResourceSpecification">
+        <xsd:annotation>
+            <xsd:documentation>
+                This element is the service controller's version of EGO's 
+                ResourceSpecification, leaving out fields that are unnecessary
+                for the service controller's configuration.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ego:ResourceGroupName" minOccurs="0"/>
+                <xsd:element ref="ego:ResourceRequirement" minOccurs="0"/>
+            </xsd:sequence>
+            <xsd:attribute name="ResourceType" type="xsd:anyURI" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="AllocationSpecification">
+        <xsd:annotation>
+            <xsd:documentation>
+                This element is the service controller's version of EGO's 
+                AllocationSpecification, leaving out fields that are unnecessary
+                for the service controller's configuration.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ego:ConsumerID"/>
+                <xsd:element ref="sc:ResourceSpecification"/>
+            </xsd:sequence>
+            <xsd:attribute name="AllocationName" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceDefinition">
+        <xsd:annotation>
+            <xsd:documentation>
+                The ServiceDefinition element describes the configuration of a single service
+                to be managed by the EGO Service Controller. The ServiceName attribute identifies this
+                service, and must be unique amongst all services controlled by the EGO Service
+                Controller.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="sc:Version"/>
+                <xsd:element ref="sc:Description"/>
+                <xsd:element ref="sc:MinInstances"/>
+                <xsd:element ref="sc:MaxInstances"/>
+                <xsd:element ref="sc:MaxInstancesPerSlot"/>
+                <xsd:element ref="sc:MaxInstancesPerHost" minOccurs="0"/>
+                <xsd:element ref="sc:Priority"/>
+                <xsd:element ref="sc:ControlPolicy"/>
+                <xsd:element ref="sc:AllocationSpecification"/>
+                <xsd:element ref="sc:ActivityDescription" maxOccurs="unbounded"/>
+                <xsd:element ref="sc:NeedCredential"/>
+            </xsd:sequence>
+            <xsd:attribute name="ServiceName" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="MaxInstancesPerSlot">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="2147483647"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="MaxInstancesPerHost">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:integer">
+                <xsd:minInclusive value="1"/>
+                <xsd:maxInclusive value="2147483647"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:simpleType name="ServiceStateEnumeration">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="defined"/>
+            <xsd:enumeration value="init"/>
+            <xsd:enumeration value="allocating"/>
+            <xsd:enumeration value="started"/>
+            <xsd:enumeration value="deallocating"/>
+            <xsd:enumeration value="error"/>
+            <xsd:enumeration value="hang"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="ServiceInstanceStateEnumeration">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="null"/>
+            <xsd:enumeration value="start"/>
+            <xsd:enumeration value="run"/>
+            <xsd:enumeration value="suspend"/>
+            <xsd:enumeration value="finish"/>
+            <xsd:enumeration value="unknown"/>
+            <xsd:enumeration value="hang"/>
+            <xsd:enumeration value="error"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name="InstanceSequenceId" type="xsd:string"/>
+    <xsd:element name="ServiceInstanceInfo">
+        <xsd:annotation>
+            <xsd:documentation>
+                The ServiceInstanceInfo element describes the configuration of a single instance of a service
+                to be managed by the EGO Service Controller. 
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="ServiceInstanceState" type="sc:ServiceInstanceStateEnumeration"/>
+                <xsd:element ref="ego:ActivityID"/>
+                <xsd:element ref="ego:ResourceName"/>
+                <xsd:element ref="sc:InstanceSequenceId"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="NumServiceInstances" type="xsd:int">
+        <xsd:annotation>
+            <xsd:documentation>
+                The number of active service instances for a service.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="ServiceInfo">
+        <xsd:annotation>
+            <xsd:documentation>
+                The ServiceInfo element describes the configuration of a single service
+                to be managed by the EGO Service Controller. The ServiceName attribute identifies this
+                service, and must be unique amongst all services controlled by the EGO Service
+                Controller.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="sc:ServiceDefinition"/>
+                <xsd:element name="ServiceState" type="sc:ServiceStateEnumeration"/>
+                <xsd:element ref="sc:ServiceAllocationInfo"/>
+                <xsd:element ref="sc:NumServiceInstances"/>
+                <xsd:element ref="sc:ServiceInstanceInfo" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:attribute name="ServiceName" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceName" type="xsd:string"/>
+    <xsd:element name="ServiceStateChange">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="sc:ServiceName"/>
+                <xsd:element name="OldState" type="sc:ServiceStateEnumeration"/>
+                <xsd:element name="NewState" type="sc:ServiceStateEnumeration"/>
+                <xsd:element ref="ego:AllocationID"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceInstanceStateChange">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="sc:ServiceName"/>
+                <xsd:element ref="sc:InstanceSequenceId"/>
+                <xsd:element ref="ego:ResourceName"/>
+                <xsd:element name="OldState" type="sc:ServiceInstanceStateEnumeration"/>
+                <xsd:element name="NewState" type="sc:ServiceInstanceStateEnumeration"/>
+                <xsd:element ref="ego:ActivityID"/>
+                <xsd:element name="Reason" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceControlOperation">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="enable"/>
+                <xsd:enumeration value="disable"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="ServiceInstanceControlOperation">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="stop"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+    <xsd:element name="SubscriptionID" type="xsd:string"/>
+    <xsd:element name="ServiceAllocationInfo">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ego:AllocationID"/>
+                <xsd:element ref="ego:Resource" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ServiceNotificationState">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="ok"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+    </xsd:element>
+</xsd:schema>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/342/trunk/www/WEB-INF
+END
+struts-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/342/trunk/www/WEB-INF/struts-config.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/342/trunk/www/WEB-INF/web.xml
+END

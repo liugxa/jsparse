@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sc:ServiceDefinition xmlns:sc="http://www.platform.com/ego/2005/05/schema/sc" xmlns:ego="http://www.pla/www.platform.com/ego/2005/05/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.platform.com/ego/2005/05/schema/sc ../sc.xsd http://www.platform.com/ego/2005/05/schema ../ego.xsd" ServiceName="WEBGUI">
+  <sc:Version>1.1</sc:Version>
+  <sc:Description></sc:Description>
+  <sc:MinInstances>1</sc:MinInstances>
+  <sc:MaxInstances>1</sc:MaxInstances>
+  <sc:Priority>100</sc:Priority>
+  <sc:MaxInstancesPerSlot>1</sc:MaxInstancesPerSlot>
+  <sc:ControlPolicy>
+    <sc:StartType>AUTOMATIC</sc:StartType>
+    <sc:MaxRestarts>10</sc:MaxRestarts>
+    <sc:HostFailoverInterval>60s</sc:HostFailoverInterval>
+  </sc:ControlPolicy>
+  <ego:AllocationSpecification>
+    <ego:ConsumerID>/ManagementServices/EGOServices</ego:ConsumerID>
+    <ego:ResourceSpecification ResourceType="s">
+      <ego:ResourceGroupName>ManagementHosts</ego:ResourceGroupName>
+      <ego:ResourceRequirement></ego:ResourceRequirement>
+    </ego:ResourceSpecification>
+  </ego:AllocationSpecification>
+  <sc:ActivityDescription>
+    <ego:Attribute name="hostType" type="xsd:string">all</ego:Attribute>
+    <ego:ActivitySpecification>
+      <ego:EnvironmentVariable name="PREFERENCE_CONF">@PREFERENCE_CONF@</ego:EnvironmentVariable>
+      <ego:EnvironmentVariable name="JAVA_HOME">@JAVA_HOME@</ego:EnvironmentVariable>
+      <ego:EnvironmentVariable name="EGO_TOP">@EGO_TOP@</ego:EnvironmentVariable>
+      <ego:EnvironmentVariable name="PERF_CONF">@PERF_CONF@</ego:EnvironmentVariable>
+      <ego:EnvironmentVariable name="@LIB_PATH_NAME@">@LIB_PATH@</ego:EnvironmentVariable>
+      <ego:EnvironmentVariable name="LSF_ENVDIR">@LSF_ENVDIR@</ego:EnvironmentVariable>
+      <ego:EnvironmentVariable name="LSF_SERVERDIR">@LSF_SERVERDIR@</ego:EnvironmentVariable>
+      <ego:Command>@STARTUPSCRIPT@</ego:Command>
+      <ego:WorkingDirectory>@WORKDIR@</ego:WorkingDirectory>
+      <ego:Umask>022</ego:Umask>
+    </ego:ActivitySpecification>
+  </sc:ActivityDescription>
+</sc:ServiceDefinition>

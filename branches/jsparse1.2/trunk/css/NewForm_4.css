@@ -1,0 +1,24 @@
+FIELDSET.timeSelectionFieldset {
+	FLOAT: none
+}
+FIELDSET.timeSelectionFieldset LEGEND {
+	FONT-WEIGHT: bold; FONT-SIZE: 0.6em
+}
+FIELDSET.timeSelectionFieldset SELECT.inputSelect {
+	BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; BORDER-LEFT: #333333 1px solid; COLOR: #000000; PADDING-TOP: 1px; BORDER-BOTTOM: #333333 1px solid; BACKGROUND-COLOR: #ffffe6
+}
+FIELDSET.timeSelectionFieldset LABEL {
+	DISPLAY: none
+}
+FIELDSET.timeSelectionFieldset LABEL.labelRadio {
+	DISPLAY: block
+}
+FIELDSET.timeSelectionFieldset SPAN.timeStuff {
+	FONT-SIZE: 0.7em
+}
+FIELDSET.dateSelectorWidget {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px! important; BORDER-TOP: medium none; PADDING-LEFT: 30px! important; PADDING-BOTTOM: 0px! important; MARGIN: 0px; BORDER-LEFT: medium none; PADDING-TOP: 0px! important; BORDER-BOTTOM: medium none; WHITE-SPACE: nowrap
+}
+FIELDSET.dateSelectorWidget LEGEND {
+	DISPLAY: none
+}

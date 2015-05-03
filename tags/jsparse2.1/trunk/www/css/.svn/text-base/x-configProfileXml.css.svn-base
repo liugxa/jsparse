@@ -1,0 +1,335 @@
+TD.testAttribute {
+	BORDER-RIGHT: #ff0000 6px solid
+}
+DIV.appProfileDisplay {
+	PADDING-LEFT: 13em! important
+}
+DIV.appProfileDisplay TABLE {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 12px; FONT-SIZE: 0.7em; BORDER-LEFT-COLOR: #333333; BORDER-BOTTOM-COLOR: #333333; PADDING-BOTTOM: 12px; BORDER-TOP-COLOR: #333333; PADDING-TOP: 12px; BORDER-RIGHT-COLOR: #333333
+}
+DIV.appProfileDisplay TABLE TH {
+	BORDER-RIGHT: #999999 1px solid; PADDING-RIGHT: 12px; BORDER-TOP: #999999 1px solid; PADDING-LEFT: 6px; PADDING-BOTTOM: 2px; BORDER-LEFT: #999999 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #999999 1px solid; TEXT-ALIGN: left
+}
+DIV.appProfileDisplay TABLE TD {
+	PADDING-RIGHT: 12px; PADDING-LEFT: 6px; VERTICAL-ALIGN: top
+}
+DIV.appProfileDisplay TABLE TD IMG {
+	PADDING-RIGHT: 2px
+}
+DIV.appProfileDisplay TABLE TD INPUT {
+	FONT-SIZE: 100%
+}
+DIV.appProfileDisplay TABLE TD SELECT {
+	FONT-SIZE: 100%
+}
+
+
+TABLE TR.paramRowXmlL1 {
+	BORDER-TOP: #0000ff 6px solid
+}
+TABLE TR.paramRowXmlL2 {
+	BORDER-TOP: #0000ff 6px solid
+}
+TABLE TR.paramRowXmlL3 {
+	BORDER-TOP: #0000ff 6px solid
+}
+TABLE TR.paramRowXmlL4 {
+	BORDER-TOP: #0000ff 6px solid
+}
+TABLE TR.paramRowXmlL5 {
+	BORDER-TOP: #0000ff 6px solid
+}
+TABLE TR.paramRowXmlL6 {
+	BORDER-TOP: #0000ff 6px solid
+}
+TABLE TR.paramRowXmlL1 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #ffff44
+}
+TABLE TR.paramRowXmlL2 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #ffff44
+}
+TABLE TR.paramRowXmlL3 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #ffff44
+}
+TABLE TR.paramRowXmlL4 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #ffff44
+}
+TABLE TR.paramRowXmlL5 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #ffff44
+}
+TABLE TR.paramRowXmlL6 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #ffff44
+}
+TABLE TR.paramRowXmlL1 TD.paramValueRequired {
+	BORDER-RIGHT: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BACKGROUND-COLOR: #ffcc00
+}
+TABLE TR.paramRowXmlL2 TD.paramValueRequired {
+	BORDER-RIGHT: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BACKGROUND-COLOR: #ffcc00
+}
+TABLE TR.paramRowXmlL3 TD.paramValueRequired {
+	BORDER-RIGHT: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BACKGROUND-COLOR: #ffcc00
+}
+TABLE TR.paramRowXmlL4 TD.paramValueRequired {
+	BORDER-RIGHT: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BACKGROUND-COLOR: #ffcc00
+}
+TABLE TR.paramRowXmlL5 TD.paramValueRequired {
+	BORDER-RIGHT: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BACKGROUND-COLOR: #ffcc00
+}
+TABLE TR.paramRowXmlL6 TD.paramValueRequired {
+	BORDER-RIGHT: #ff0000 1px solid; BORDER-LEFT: #ff0000 1px solid; BACKGROUND-COLOR: #ffcc00
+}
+TABLE TR.paramRowDefaultL1 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #dddddd
+}
+TABLE TR.paramRowDefaultL2 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #dddddd
+}
+TABLE TR.paramRowDefaultL3 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #dddddd
+}
+TABLE TR.paramRowDefaultL4 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #dddddd
+}
+TABLE TR.paramRowDefaultL5 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #dddddd
+}
+TABLE TR.paramRowDefaultL6 TD {
+	BORDER-TOP: #ffffff 2px solid; BACKGROUND-COLOR: #dddddd
+}
+TABLE TR.containerRowXmlL1 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff
+}
+TABLE TR.containerRowXmlL2 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff
+}
+TABLE TR.containerRowXmlL3 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff
+}
+TABLE TR.containerRowXmlL4 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff
+}
+TABLE TR.containerRowXmlL5 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff
+}
+TABLE TR.containerRowXmlL6 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff
+}
+TABLE TR.containerRowXmlL1 TD {
+	BACKGROUND-COLOR: #0000aa
+}
+TABLE TR.containerRowXmlL2 TD {
+	BACKGROUND-COLOR: #1111aa
+}
+TABLE TR.containerRowXmlL3 TD {
+	BACKGROUND-COLOR: #2222aa
+}
+TABLE TR.containerRowXmlL4 TD {
+	BACKGROUND-COLOR: #3333aa
+}
+TABLE TR.containerRowXmlL5 TD {
+	BACKGROUND-COLOR: #4444aa
+}
+TABLE TR.containerRowXmlL6 TD {
+	BACKGROUND-COLOR: #5555aa
+}
+TABLE TR.containerRowDefaultL1 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffefef
+}
+TABLE TR.containerRowDefaultL2 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffefef
+}
+TABLE TR.containerRowDefaultL3 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffefef
+}
+TABLE TR.containerRowDefaultL4 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffefef
+}
+TABLE TR.containerRowDefaultL5 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffefef
+}
+TABLE TR.containerRowDefaultL6 TD {
+	BORDER-TOP: #ffffff 2px solid; COLOR: #ffffff; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #ffefef
+}
+TABLE TR.containerRowDefaultL1 TD {
+	BACKGROUND-COLOR: #333333
+}
+TABLE TR.containerRowDefaultL2 TD {
+	BACKGROUND-COLOR: #444444
+}
+TABLE TR.containerRowDefaultL3 TD {
+	BACKGROUND-COLOR: #555555
+}
+TABLE TR.containerRowDefaultL4 TD {
+	BACKGROUND-COLOR: #666666
+}
+TABLE TR.containerRowDefaultL5 TD {
+	BACKGROUND-COLOR: #777777
+}
+TABLE TR.containerRowDefaultL6 TD {
+	BACKGROUND-COLOR: #888888
+}
+TABLE TR.paramRowXmlL1 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowDefaultL1 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowXmlL2 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowDefaultL2 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowXmlL3 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowDefaultL3 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowXmlL4 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowDefaultL4 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowXmlL5 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowDefaultL5 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowXmlL6 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowDefaultL6 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: normal; COLOR: #000000; BACKGROUND-REPEAT: no-repeat; BACKGROUND-COLOR: #ffffaa
+}
+TABLE TR.paramRowDefaultL1 TD.paramName {
+	BACKGROUND-COLOR: #efefef
+}
+TABLE TR.paramRowDefaultL2 TD.paramName {
+	BACKGROUND-COLOR: #efefef
+}
+TABLE TR.paramRowDefaultL3 TD.paramName {
+	BACKGROUND-COLOR: #efefef
+}
+TABLE TR.paramRowDefaultL4 TD.paramName {
+	BACKGROUND-COLOR: #efefef
+}
+TABLE TR.paramRowDefaultL5 TD.paramName {
+	BACKGROUND-COLOR: #efefef
+}
+TABLE TR.paramRowDefaultL6 TD.paramName {
+	BACKGROUND-COLOR: #efefef
+}
+TABLE TR.paramRowXmlL1 TD.paramName {
+	PADDING-LEFT: 16px; BACKGROUND-IMAGE: url(../images/icon-L1.gif)
+}
+TABLE TR.paramRowDefaultL1 TD.paramName {
+	PADDING-LEFT: 16px; BACKGROUND-IMAGE: url(../images/icon-L1.gif)
+}
+TABLE TR.paramRowXmlL2 TD.paramName {
+	PADDING-LEFT: 26px; BACKGROUND-IMAGE: url(../images/icon-L2.gif)
+}
+TABLE TR.paramRowDefaultL2 TD.paramName {
+	PADDING-LEFT: 26px; BACKGROUND-IMAGE: url(../images/icon-L2.gif)
+}
+TABLE TR.paramRowXmlL3 TD.paramName {
+	PADDING-LEFT: 36px; BACKGROUND-IMAGE: url(../images/icon-L3.gif)
+}
+TABLE TR.paramRowDefaultL3 TD.paramName {
+	PADDING-LEFT: 36px; BACKGROUND-IMAGE: url(../images/icon-L3.gif)
+}
+TABLE TR.paramRowXmlL4 TD.paramName {
+	PADDING-LEFT: 46px; BACKGROUND-IMAGE: url(../images/icon-L4.gif)
+}
+TABLE TR.paramRowDefaultL4 TD.paramName {
+	PADDING-LEFT: 46px; BACKGROUND-IMAGE: url(../images/icon-L4.gif)
+}
+TABLE TR.paramRowXmlL5 TD.paramName {
+	PADDING-LEFT: 56px; BACKGROUND-IMAGE: url(../images/icon-L5.gif)
+}
+TABLE TR.paramRowDefaultL5 TD.paramName {
+	PADDING-LEFT: 56px; BACKGROUND-IMAGE: url(../images/icon-L5.gif)
+}
+TABLE TR.paramRowXmlL6 TD.paramName {
+	PADDING-LEFT: 66px; BACKGROUND-IMAGE: url(../images/icon-L6.gif)
+}
+TABLE TR.paramRowDefaultL6 TD.paramName {
+	PADDING-LEFT: 66px; BACKGROUND-IMAGE: url(../images/icon-L6.gif)
+}
+TABLE TR.containerRowXmlL1 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowDefaultL1 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowXmlL2 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowDefaultL2 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowXmlL3 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowDefaultL3 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowXmlL4 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowDefaultL4 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowXmlL5 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowDefaultL5 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowXmlL6 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowDefaultL6 TD.paramName {
+	PADDING-RIGHT: 12px; BACKGROUND-POSITION: left top; FONT-WEIGHT: bold; COLOR: #ffffff! important; BACKGROUND-REPEAT: no-repeat
+}
+TABLE TR.containerRowXmlL1 TD.paramName {
+	PADDING-LEFT: 16px; BACKGROUND-IMAGE: url(../images/icon-L1.gif)
+}
+TABLE TR.containerRowDefaultL1 TD.paramName {
+	PADDING-LEFT: 16px; BACKGROUND-IMAGE: url(../images/icon-L1.gif)
+}
+TABLE TR.containerRowXmlL2 TD.paramName {
+	PADDING-LEFT: 26px; BACKGROUND-IMAGE: url(../images/icon-L2.gif)
+}
+TABLE TR.containerRowDefaultL2 TD.paramName {
+	PADDING-LEFT: 26px; BACKGROUND-IMAGE: url(../images/icon-L2.gif)
+}
+TABLE TR.containerRowXmlL3 TD.paramName {
+	PADDING-LEFT: 36px; BACKGROUND-IMAGE: url(../images/icon-L3.gif)
+}
+TABLE TR.containerRowDefaultL3 TD.paramName {
+	PADDING-LEFT: 36px; BACKGROUND-IMAGE: url(../images/icon-L3.gif)
+}
+TABLE TR.containerRowXmlL4 TD.paramName {
+	PADDING-LEFT: 46px; BACKGROUND-IMAGE: url(../images/icon-L4.gif)
+}
+TABLE TR.containerRowDefaultL4 TD.paramName {
+	PADDING-LEFT: 46px; BACKGROUND-IMAGE: url(../images/icon-L4.gif)
+}
+TABLE TR.containerRowXmlL5 TD.paramName {
+	PADDING-LEFT: 56px; BACKGROUND-IMAGE: url(../images/icon-L5.gif)
+}
+TABLE TR.containerRowDefaultL5 TD.paramName {
+	PADDING-LEFT: 56px; BACKGROUND-IMAGE: url(../images/icon-L5.gif)
+}
+TABLE TR.containerRowXmlL6 TD.paramName {
+	PADDING-LEFT: 66px; BACKGROUND-IMAGE: url(../images/icon-L6.gif)
+}
+TABLE TR.containerRowDefaultL6 TD.paramName {
+	PADDING-LEFT: 66px; BACKGROUND-IMAGE: url(../images/icon-L6.gif)
+}
+TABLE TD.controlRow {
+	BACKGROUND-COLOR: #ffffff! important
+}

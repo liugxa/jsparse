@@ -1,0 +1,145 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+
+<SCRIPT language=JavaScript src="../script/validate.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-rule.js" type=text/JavaScript></SCRIPT>
+
+<!-- UnitTest.js -->
+<SCRIPT language=JavaScript src="../script/prototype.js" type=text/JavaScript></SCRIPT>
+<script language=Javascript src="unittest.js"type=text/JavaScript></script>	
+<link rel="stylesheet" href="test.css" type="text/css" />
+
+</HEAD>
+
+
+<BODY>
+<div id="testlog"> </div>
+</BODY>
+
+<script>
+//*******************************************************************************
+//Test cases : base on the ApplicationProfile.xsd file
+//*******************************************************************************
+var ruleFactory = new RuleFactory("xsd");
+
+new Test.Unit.Runner({
+	
+	testStringRule: function(){with(this){
+		var sr = ruleFactory.getRuleByType("xsd:string" , "required" , "");		
+		var r1 = sr.validate("");
+		var r2 = sr.validate("haha");
+
+
+		assertEqual("string" , sr.name);
+		assertEqual(true , r1);
+		assertEqual(true , r2);
+
+		}
+	},
+	testBooleanRule: function(){with(this){
+		var br1 = ruleFactory.getRuleByType("xsd:boolean" , "required" , "");
+		var r11 = br1.validate("");
+		var r12 = br1.validate("1");
+		var r13 = br1.validate("c");
+
+		assertEqual("boolean" , br1.name);
+		assertEqual(false , r11);
+		assertEqual(true , r12);
+		assertEqual(false , r13);
+
+		}
+	},
+	testIntegerRule: function(){with(this){
+		var br1 = ruleFactory.getRuleByType("xsd:integer" , "required" , "");
+		
+		var r11 = br1.validate("");
+		var r12 = br1.validate(1123304);
+		var r13 = br1.validate("19303_-2340");
+		var r14 = br1.validate(112330.4);
+		
+		assertEqual("integer" , br1.name);
+		assertEqual(false , r11);
+		assertEqual(true , r12);
+		assertEqual(false , r13);
+		assertEqual(false , r14);
+		}
+	},
+	testPositiveIntegerRule: function(){with(this){
+		var br1 = ruleFactory.getRuleByType("xsd:positiveInteger" , "required" , "");
+
+		var r11 = br1.validate("");
+		var r12 = br1.validate(0);
+		var r13 = br1.validate(12547935);
+		var r14 = br1.validate(-29394.102);
+		
+		assertEqual("positiveInteger" , br1.name);
+		assertEqual(false , r11);
+		assertEqual(false , r12);
+		assertEqual(true , r13);
+		assertEqual(false , r14);
+		}
+	},
+	testDateTimeRule: function(){with(this){
+		var br1 = ruleFactory.getRuleByType("xsd:dateTime" , "required" , "");
+
+		var r11 = br1.validate("");
+		//var r12 = br1.validate("1999-05-31T13:20:00.000-05:00");
+		var r12 = br1.validate("2002-10-10T12:00:00");
+
+		assertEqual(false , r11);
+		assertEqual(true , r12);
+		}
+	},
+	testAnySimpleTypeRule:function(){with(this){
+		var br1 = ruleFactory.getRuleByType("xsd:anySimpleType" , "required" , "");
+		var r11 = br1.validate("");
+
+		assertEqual(true , r11);
+		}
+	},
+	testDurationRule:function(){with(this){
+		var br1 = ruleFactory.getRuleByType("xsd:duration" , "required" , "");
+		
+		var r11 = br1.validate("");
+		var r12 = br1.validate("P12Y03M12D");
+		var r13 = br1.validate("P12Y03M12F");
+
+		assertEqual(false , r11);
+		assertEqual(true , r12);
+		assertEqual(false , r13);
+		}
+	},
+	testUnsignedLongRule:function(){with(this){
+		var br1 = ruleFactory.getRuleByType("xsd:unsignedLong" , "required" , "");
+		
+		var r11 = br1.validate("");
+		var r12 = br1.validate("4294967296");
+		var r13 = br1.validate("18446744073709551614");
+		var r14 = br1.validate("18446744073709551615");
+		var r15 = br1.validate("18446744073709551616");
+
+
+		assertEqual(false , r11);
+		assertEqual(true , r12);
+		assertEqual(true , r13);
+		assertEqual(true , r14);
+		assertEqual(false , r15);
+		}
+	},
+	testEnumStringRule:function(){with(this){
+		var enums = new EnumStringRule("" , "");
+		enums.addEnumValue("TOM");
+		enums.addEnumValue("JACK");
+		enums.addEnumValue("JORDAN");
+		
+		enums.validate("LG");
+		assertNotEqual("" , enums.message);
+		//alert(enums.message);
+		}
+	}
+}, "testlog");
+
+</script>
+</HTML>

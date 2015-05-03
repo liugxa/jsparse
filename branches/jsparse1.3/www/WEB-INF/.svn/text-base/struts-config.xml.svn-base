@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans></form-beans>
+
+
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards></global-forwards>
+
+
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+	  <!-- Service Configure Action -->
+      <action 
+           path="/xmlHttpResponseAction" 
+           scope="request" 
+           type="com.company.xmledtor.XmlHttpResponseAction" 
+           validate="false">
+      </action>
+  </action-mappings>
+</struts-config>

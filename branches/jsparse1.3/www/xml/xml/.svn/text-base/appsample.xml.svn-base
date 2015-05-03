@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--示例 XML 文件由 XMLSpy v2006 U 创建 (http://www.altova.com)-->
+<Profile xmlns="http://www.platform.com/Symphony/Profile/Application" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.platform.com/Symphony/Profile/Application
+./app.xsd" name="normalizedString">
+	<Consumer taskLowWaterMark="0.0" taskHighWaterMark="1.0" consumerId="String" transientDisconnectionTimeout="10" sessionSchedulingInterval="500" flushDataAsap="false" numOfPreloadedServices="1" applicationLingerTime="300" resReq="String" applicationName="normalizedString" resourceBalanceInterval="5" preStartApplication="false" ssmRecoveryTime="10" resourceGroupName="String" policy="R_Proportion"/>
+	<SOAM>
+		<SSM startUpTimeout="60" disableFlowControl="false" resReq="String" shutDownTimeout="300" resourceGroupName="String">
+			<osTypes>
+				<osType runAs="String" workDir="String" startCmd="String" name="String">
+					<env name="normalizedString">${SOAM_HOME}/${VERSION_NUM}/${MACHINE_TYPE}/lib:${SOAM_HOME}/${VERSION_NUM}/${MACHINE_TYPE}/etc:${SOAM_HOME}/${VERSION_NUM}/${MACHINE_TYPE}/bin:/bin:/usr/bin:/local/share/bin12/19/2006</env>
+				</osType>
+			</osTypes>
+			<boundaryManagerConfig enabled="true">
+				<elementDefinitions>
+					<boundaryElement minValue="3.141593E0" maxValue="3.141593E0" description="String" name="String">
+						<additionalConfig value="String" name="String"/>
+					</boundaryElement>
+				</elementDefinitions>
+				<boundaries>
+					<boundary elementName="String">
+						<event value="3.141593E0" name="BEV_PROACTIVE"/>
+					</boundary>
+				</boundaries>
+				<globalConfig value="String" name="dataCollectionInterval"/>
+			</boundaryManagerConfig>
+		</SSM>
+		<SIM startUpTimeout="120">
+			<osTypes>
+				<osType runAs="String" workDir="String" postExecCmd="String" startCmd="String" name="String" preExecCmd="String">
+					<env name="normalizedString">normalizedString</env>
+				</osType>
+			</osTypes>
+		</SIM>
+		<DataHistory lastingPeriodInSeconds="2" delimiter="," fileSwitchSize="100" lastingPeriod="96" pollFrequency="10" fileSwitchTime="24" path="String"/>
+		<PagingTasksInput diskSpace="4294967296" blockSize="4096" pmeType="2" bitmapBits="4194304" path="normalizedString">
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+		</PagingTasksInput>
+		<PagingTasksOutput diskSpace="4294967296" blockSize="4096" pmeType="2" bitmapBits="4194304" path="normalizedString">
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+		</PagingTasksOutput>
+		<PagingCommonData diskSpace="4294967296" blockSize="4096" pmeType="2" bitmapBits="4194304" path="normalizedString">
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+			<PagingMode writePriority="2" removePriority="2" name="normalizedString" readPriority="2"/>
+		</PagingCommonData>
+		<JournalingTasks diskSpace="1073741824" blockSize="256" pmeType="2" bitmapBits="2000000" path="normalizedString"/>
+		<JournalingSessions diskSpace="536870912" blockSize="2048" pmeType="2" bitmapBits="10000" path="normalizedString"/>
+	</SOAM>
+	<SessionTypes>
+		<Type sessionRetryLimit="3" taskGracePeriod="100" discardResultsOnDelivery="true" abortSessionIfClientDisconnect="true" taskCleanupPeriod="250" persistSessionHistory="all" recoverable="false" persistTaskHistory="error" abortSessionIfTaskFail="false" name="String" taskRetryLimit="3" priority="1"/>
+	</SessionTypes>
+	<SessionTypes>
+		<Type sessionRetryLimit="3" taskGracePeriod="100" discardResultsOnDelivery="true" abortSessionIfClientDisconnect="true" taskCleanupPeriod="250" persistSessionHistory="all" recoverable="false" persistTaskHistory="error" abortSessionIfTaskFail="false" name="String" taskRetryLimit="3" priority="1"/>
+	</SessionTypes>
+	<Service deploymentTimeout="2" description="String" name="normalizedString">
+		<osTypes>
+			<osType runAs="normalizedString" workDir="String" startCmd="String" name="normalizedString" preExecCmd="String" packageUrl="normalizedString">
+				<env name="normalizedString">normalizedString</env>
+			</osType>
+		</osTypes>
+		<Control>
+			<Timeout duration="2" method="Register"/>
+			<ControlCode code="0" action="Restart" method="Register"/>
+		</Control>
+	</Service>
+	<Version>String</Version>
+</Profile>

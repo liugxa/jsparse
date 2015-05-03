@@ -1,0 +1,354 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+
+<SCRIPT language=JavaScript src="../script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/validate.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/x-variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-common.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-rule.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-parse.js" type=text/JavaScript></SCRIPT>
+
+<!-- UnitTest.js -->
+<SCRIPT language=JavaScript src="../script/prototype.js" type=text/JavaScript></SCRIPT>
+<script language=Javascript src="unittest.js"type=text/JavaScript></script>	
+<link rel="stylesheet" href="test.css" type="text/css" />
+</HEAD>
+
+
+<BODY>
+<div id="testlog"> </div>
+</BODY>
+
+<script>
+//*******************************************************************************
+//Test cases : base on the sc.xsd file
+//*******************************************************************************
+var ruleFactory = new RuleFactory("xsd");
+
+var ego_sXmlDoc = XmlDocument.create();
+ego_sXmlDoc.async = false;
+ego_sXmlDoc.load("../xml/ego.xsd");
+var egoParse = new MultiNSSchemaParse(ego_sXmlDoc , "ego" , "xsd");
+egoParse.ruleFactory = ruleFactory;
+
+var sc_sXmlDoc = XmlDocument.create();
+sc_sXmlDoc.async = false;
+sc_sXmlDoc.load("../xml/sc.xsd");
+var scParse = new MultiNSSchemaParse(sc_sXmlDoc , "sc" , "xsd");
+scParse.refParse = egoParse;
+scParse.ruleFactory = ruleFactory;
+
+new Test.Unit.Runner({
+	testInit: function(){with(this){
+		assertNotNull(egoParse);
+		assertNotNull(scParse);
+		}
+	},
+	testFindRootElement: function(){with(this){
+		var element = scParse.findRootElement();
+		assertNull(element);
+		}
+	},
+	testFindElementByName:function(){with(this){
+		var element = scParse.findElementByName("sc:NumServiceInstances");
+		var e2 = scParse.findElementByName("sc:ControlPolicy");
+		assertNotNull(element);
+		assertNotNull(e2);
+		assertEqual("xsd:int" , element.getAttribute("type"));
+		}
+	},
+	testFindElementDocumentation: function(){with(this){
+		var s = scParse.findElementDocumentation("sc:ServiceInstanceInfo");
+		assertNotEqual(-1, s.indexOf("instance of a service"));
+		}
+	},
+	testFindElementChildrens: function(){with(this){
+
+		var childs = scParse.findElementChildrens("sc:ControlPolicy");
+		assertEqual(6 , childs.length);
+		assertEqual("sc:StartType" , childs[0].getAttribute("ref"));
+		assertEqual("sc:Dependency" , childs[5].getAttribute("ref"));
+		}
+	},
+	testFindElementAttributes: function(){with(this){
+		var fname = "testFindElementAttributes";
+		var attris = scParse.findElementAttributes("sc:ServiceDefinition");
+		var attris1 = scParse.findElementAttributes("sc:Dependency");
+		
+		assertEqual(1 , attris.length);
+		assertEqual("ServiceName" , attris[0].getAttribute("name"));
+
+		assertEqual(1 , attris1.length);
+		assertEqual("type" , attris1[0].getAttribute("name"));
+		assertEqual("sc:DependencyTypeEnumeration" , attris1[0].getAttribute("type"));
+		}
+
+	},
+	testFindElementAttribute: function(){with(this){
+		
+		}
+	},
+	testFindSimpleType: function(){with(this){
+		var s = scParse.findSimpleType("DependencyTypeEnumeration");
+		assertNotNull(s);
+		}
+	},
+	testFindElementStructRule: function(){with(this){
+		var rule = scParse.findElementStructRule("sc:NumServiceInstances");
+		assertEqual("occurs" , rule.name);
+		assertEqual(1 , rule.min);
+		assertEqual(1 , rule.max);
+		}			
+	},
+	testFindElementContentRule: function(){with(this){
+		var rule = scParse.findElementContentRule("sc:SubscriptionID");
+		var rule1 = scParse.findElementContentRule("sc:StartType");
+		var rule2 = scParse.findElementContentRule("sc:Dependency");
+		var rule3 = scParse.findElementContentRule("sc:HeartbeatInterval");
+		var rule4 = scParse.findElementContentRule("sc:Version");
+
+		//alert(rule + "|" + rule1 + "|" + rule2);
+		assertEqual("string" , rule.name);
+		
+		assertEqual("enumString" , rule1.name);
+		assertEqual(2, rule1.enumValues.length);
+		assertEqual("AUTOMATIC" , rule1.getEnumValue(0));
+		assertEqual("MANUAL" , rule1.getEnumValue(1));
+		
+		assertEqual("string" , rule2.name);		
+		assertEqual("duration" , rule3.name);
+
+		assertEqual("string" , rule4.name);
+		}			
+	},
+	testFindElementAttributeRule: function(){with(this){
+		var rule = scParse.findElementAttributeRule("sc:ServiceDefinition" , "ServiceName");
+		var rule1 = scParse.findElementAttributeRule("sc:Dependency" , "type");
+
+		assertEqual("string" , rule.name);
+		assertEqual("required" , rule.use);
+
+		assertEqual("enumString" , rule1.name);
+		assertEqual(1 , rule1.enumValues.length);
+		assertEqual("OnStart" , rule1.getEnumValue(0));
+		assertEqual("required" , rule1.use);
+		}			
+	},
+	testFindElementChildrenStructRule: function(){with(this){
+		var rule = scParse.findElementChildrenStructRule("sc:ControlPolicy" , "sc:HeartbeatInterval");
+		var rule1 = scParse.findElementChildrenStructRule("sc:ControlPolicy" , "sc:MaxRestarts");
+		var rule2 = scParse.findElementChildrenStructRule("sc:ActivityDescription" , "ego:Attribute");
+		
+
+		assertEqual("occurs" , rule.name);
+		assertEqual(0 , rule.min);
+		assertEqual("occurs" , rule1.name);
+		assertEqual(1 , rule1.min);
+		assertEqual(1 , rule1.max);
+		assertEqual("occurs" , rule2.name);	
+		assertEqual(0 , rule2.min);	
+		assertEqual("unbounded" , rule2.max);	
+		}
+	},
+	testFindElementChildrenContentRule: function(){with(this){
+		var rule = scParse.findElementChildrenContentRule("sc:ControlPolicy" , "sc:HeartbeatInterval");
+		var rule1 = scParse.findElementChildrenContentRule("sc:ActivityDescription" , "ego:Attribute");
+
+		assertEqual("duration" , rule.name);
+		assertEqual("anySimpleType" , rule1.name);
+		}
+	}
+}, "testlog");
+
+/*
+function _Test(){
+
+	this.init = function(){
+		var fname = "init";
+		if(egoParse == null || scParse == null){
+			_alertFailure(fname);
+		}else{
+			_alertSuccess(fname);
+		}
+	}
+
+	this.testFindRootElement = function(){
+		var fname = "testFindRootElement";
+		var element = scParse.findRootElement();
+
+		if(element == null){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testFindElementByName = function(){
+		var fname = "testFindElementByName";
+		var element = scParse.findElementByName("NumServiceInstances");
+		if(element != null && element.getAttribute("type") == "xsd:int"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+			
+	}
+	
+	this.testFindElementDocumentation = function(){
+		var fname = "testFindElementDocumentation";
+		var s = scParse.findElementDocumentation("ServiceInstanceInfo");
+		if(s.match("ServiceInstanceInfo element")){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+
+	}
+
+	this.testFindElementChildrens = function(){
+		var fname = "testFindElementChildrens";
+
+		var childs = scParse.findElementChildrens("ControlPolicy");
+		if(childs.length == 6 && childs[0].getAttribute("ref") == "sc:StartType"
+			&& childs[5].getAttribute("ref") == "sc:Dependency"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testFindElementAttributes = function(){
+		var fname = "testFindElementAttributes";
+		var attris = scParse.findElementAttributes("ServiceDefinition");
+		var attris1 = scParse.findElementAttributes("Dependency");
+
+		if(attris.length == 1 && attris[0].getAttribute("name") == "ServiceName"
+			&& attris1.length ==1 && attris1[0].getAttribute("name") == "type"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+
+	}
+
+	this.testFindElementAttribute = function(){
+
+	}
+
+	this.testFindSimpleType = function(){
+
+	}
+
+	this.testFindElementStructRule = function(){
+		var fname = "testFindElementStructRule";
+		try{
+			var rule = scParse.findElementStructRule("NumServiceInstances");
+
+			if(rule.name == "occurs" && rule.min == 1 && rule.max == 1){
+				_alertSuccess(fname);
+			}else{
+				_alertFailure(fname);
+			}
+		}catch(e){
+			_alertException(fname , e);			
+		}			
+	}
+
+	this.testFindElementContentRule = function(){
+		var fname = "testFindElementContentRule";
+		try{
+			var rule = scParse.findElementContentRule("SubscriptionID");
+			var rule1 = scParse.findElementContentRule("StartType");
+			var rule2 = scParse.findElementContentRule("Dependency");
+			
+			//alert(rule + "|" + rule1 + "|" + rule2);
+			if(rule.name == "string"
+				&& rule1.name == "enumString" && rule1.enumValues.length == 2
+				&& rule1.getEnumValue(0) == "AUTOMATIC" && rule1.getEnumValue(1) == "MANUAL"
+				&& rule2.name == "string"){
+				_alertSuccess(fname);
+			}else{
+				_alertFailure(fname);
+			}
+		}catch(e){
+			_alertException(fname , e);			
+		}			
+	}
+
+	this.testFindElementAttributeRule = function(){
+
+		var fname = "testFindElementAttributeRule";
+		var rule = scParse.findElementAttributeRule("ServiceDefinition" , "ServiceName");
+		var rule1 = scParse.findElementAttributeRule("Dependency" , "type");
+		
+		//alert(fname + ": rule ->" + rule + "| rule1 ->" + rule1);
+		if(rule.name == "string" && rule.use == "required"
+			&& rule1.name =="enumString" && rule1.enumValues.length == 1
+			&& rule1.getEnumValue(0) == "OnStart"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}			
+
+	}
+
+	this.testFindElementChildrenStructRule = function(){
+
+		var fname = "testFindElementChildrenStructRule";
+		var rule = scParse.findElementChildrenStructRule("ControlPolicy" , "HeartbeatInterval");
+		var rule1 = scParse.findElementChildrenStructRule("ControlPolicy" , "MaxRestarts");
+		var rule2 = scParse.findElementChildrenStructRule("ActivityDescription" , "Attribute");
+		
+		if(rule.name == "occurs" && rule.min == 0
+			&& rule1.name == "occurs" && rule1.min == 1 && rule1.max == 1
+			&& rule2.name == "occurs" && rule2.min == 0 && rule2.max == "unbounded"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testFindElementChildrenContentRule = function(){
+
+		var fname = "testFindElementChildrenContentRule";
+		var rule = scParse.findElementChildrenContentRule("ControlPolicy" , "HeartbeatInterval");
+		var rule1 = scParse.findElementChildrenContentRule("ActivityDescription" , "Attribute");
+		
+		if(rule.name == "duration"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.tearTearDown = function(){
+		var fname = "tearTearDown";
+
+		RuleFactory = null;
+		ego_sXmlDoc = null;
+		sc_sXmlDoc = null;
+
+		egoParse = null;
+		scParse = null;
+		
+		_alertSuccess(fname);
+	}
+}
+
+//*******************************************************************************
+//Test runner
+//*******************************************************************************
+autoTest();
+function autoTest(){
+	var test = new _Test();
+	for (var property in test) {
+		if(test[property] instanceof Function){
+			test[property]();
+		}
+	}
+}
+*/
+</script>
+</HTML>

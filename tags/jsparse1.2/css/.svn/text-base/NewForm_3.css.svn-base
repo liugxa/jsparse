@@ -1,0 +1,60 @@
+FIELDSET.radioGroup-1 {
+	FLOAT: none
+}
+FIELDSET.radioGroup-2 {
+	FLOAT: none
+}
+DIV.formTestObject FIELDSET FIELDSET.radioGroup-1 LEGEND {
+	FONT-WEIGHT: bold; FONT-SIZE: 0.6em
+}
+DIV.formTestObject FIELDSET FIELDSET.radioGroup-2 LEGEND {
+	FONT-WEIGHT: bold; FONT-SIZE: 0.6em
+}
+FIELDSET.radioGroup-1 LABEL {
+	DISPLAY: block; FONT-SIZE: 0.7em; WHITE-SPACE: nowrap
+}
+FIELDSET.radioGroup-2 LABEL {
+	DISPLAY: inline; FONT-SIZE: 0.7em; WHITE-SPACE: nowrap
+}
+LABEL.labelCheckbox {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelCheckbox-Disabled {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelCheckbox-ReadOnly {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelCheckbox-Required {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelRadio {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelRadio-Disabled {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelRadio-ReadOnly {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelRadio-Required {
+	PADDING-RIGHT: 1px; DISPLAY: block; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+LABEL.labelCheckbox-Disabled {
+	COLOR: #999999
+}
+LABEL.labelRadio-Disabled {
+	COLOR: #999999
+}
+LABEL.labelCheckbox-ReadOnly {
+	COLOR: #666666
+}
+LABEL.labelRadio-ReadOnly {
+	COLOR: #666666
+}
+LABEL.labelCheckbox-Required {
+	COLOR: #ff0000
+}
+LABEL.labelRadio-Required {
+	COLOR: #ff0000
+}

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/283/tags/jsparse3.3/src/test
+END
+testParse-Service.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/testParse-Service.html
+END
+unittest.js
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/unittest.js
+END
+testDomTree-Service.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/testDomTree-Service.html
+END
+testReader.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/testReader.html
+END
+testParse-App.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/testParse-App.html
+END
+testDomTree-App.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/testDomTree-App.html
+END
+test.css
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/test.css
+END
+testRule.html
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/283/tags/jsparse3.3/src/test/testRule.html
+END

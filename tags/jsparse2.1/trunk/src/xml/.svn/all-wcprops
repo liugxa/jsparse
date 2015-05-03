@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml
+END
+ApplicationProfile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/ApplicationProfile.xml
+END
+ApplicationProfile.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/ApplicationProfile.xsd
+END
+ApplicationProfile-doc1.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/ApplicationProfile-doc1.xsd
+END
+ego.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/ego.xsd
+END
+gui_service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/gui_service.xml
+END
+gui_service_comment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/gui_service_comment.xml
+END
+sc.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/sc.xsd
+END
+ApplicationProfile-doc.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/235/tags/jsparse2.1/trunk/src/xml/ApplicationProfile-doc.xsd
+END

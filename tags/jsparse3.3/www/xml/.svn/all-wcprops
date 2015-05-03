@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml
+END
+webgui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/webgui.xml
+END
+applicationTemplate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/applicationTemplate.xml
+END
+appsample.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/appsample.xml
+END
+domtree.js
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/domtree.js
+END
+ego.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/ego.xsd
+END
+serviceTemplate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/serviceTemplate.xml
+END
+sc.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/sc.xsd
+END
+app.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/283/tags/jsparse3.3/www/xml/app.xsd
+END

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<HTML xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+<HEAD>
+<TITLE></TITLE>
+	
+<link REL='Stylesheet' HREF='css/base.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/navigation.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/navigation_new.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/object-properties.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/soa.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/NewForm_0.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/NewForm_1.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/NewForm_2.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/NewForm_3.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/NewForm_4.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/NewForm_5.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/NewForm_6.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/appProfileDisplay.css' TYPE='text/css'/>
+
+<SCRIPT language='JavaScript' src="index_files/editableForm.js" type='text/JavaScript'></SCRIPT>
+<SCRIPT language='JavaScript' src="index_files/manipulateElements.js"type='text/JavaScript'></SCRIPT>
+
+<!--
+<SCRIPT language='JavaScript' src="index_files/common.js" type='text/JavaScript'></SCRIPT>
+<SCRIPT language='JavaScript' src="index_files/navTree.js" type='text/JavaScript'></SCRIPT>
+<SCRIPT language='JavaScript' src="index_files/overlib.js" type='text/JavaScript'></SCRIPT>
+<SCRIPT language='JavaScript' src="index_files/hosts.js" type='text/JavaScript'></SCRIPT>
+-->
+
+
+</HEAD>
+<BODY> 
+
+
+<FORM id='myForm'>
+
+<div class="objectProps">
+
+<h1>Application Profile (MultiDerCalc (v1.5))</h1>
+
+
+
+		<label for="cc" class="labelSelect-Required" style="display: none">Consumer *</label>
+		<select name="textfield" class="inputSelect-Required"  id="cc" onchange="MM_jumpMenu('parent',this,0)">
+		  <option value="01_02_app-profile-1-basic.htm">Basic Configuration</option>
+          <option value="01_02_app-profile-2-advanced.htm">Advanced Configuration</option>
+          <option value="01_02_app-profile-3-all.htm" selected="selected">Edit XML</option>
+        </select>
+
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  -->
+
+<!-- BEGIN View of Objects -->
+<div id="contentObjectsId" class="appProfileDisplay" style="padding-left: 0px !important">
+  <table id="resourcePlanTable" border="0" cellpadding="0" cellspacing="0">
+        <thead>
+			<tr>
+			  <th scope="col">&nbsp;</th>
+			  <th scope="col">Name</th>
+			  <th scope="col">Value</th>
+			  <th scope="col" class="paramValueDefault">Default Value </th>
+			  <th scope="col">Requirements</th>
+			  <th scope="col">Source </th>
+			  <th scope="col">Actions</th>
+			</tr>
+        </thead>
+
+		<!-- This table information will be printed by schema2HtmlForm.js -->
+		<tbody></tbody>
+	</table>
+</div>
+
+<!-- END View of Objects -->
+
+<DIV class='windowControls'>
+<BUTTON id='buttonCreate' onclick='validateForm()'	name='buttonCreate'>Save</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonCancel'>Revert</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonImport'>Import...</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonExport'>Export...</BUTTON>
+<BUTTON id='buttonClose'  onclick='self.close()'	name='buttonClose'>Close</BUTTON>
+</DIV>
+
+</DIV>
+
+<SCRIPT language=JavaScript src="js/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="js/collects.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="js/validate.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="js/variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="js/class.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="js/schemaParse.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="js/schema2Html.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript>
+
+function validateForm(){
+	
+	var table = document.getElementById("resourcePlanTable");
+	//alert(table);
+
+	//find <span> tag
+	
+	var spanArray = table.getElementsByTagName("span");
+	var spanInput = "";
+	for(var i=0;i<spanArray.length;i++){
+		//find the span value
+		spanInput = spanArray[i].innerHTML;
+		
+		//get input values?! faint!
+		var sv = "";
+		if(spanInput != ""){
+			var indexV = spanInput.indexOf("value");
+			if(indexV != -1){
+				var indexC = spanInput.indexOf("class");
+				sv = spanInput.substring(indexV + 6 , indexC);
+				//alert(sv);
+			}
+		}else{
+			sv = spanInput;
+		}
+		
+		//find input tag <-requirements>
+		var inputName0 = spanArray[i].getAttribute("id") + "-requirements";
+		var input0 = document.getElementById(inputName0);
+		var elementName = input0.value;
+
+		var inputName1 = spanArray[i].getAttribute("id") + "-profile";
+		var input1 = document.getElementById(inputName1);
+		var attributeName = input1.value;
+
+		var rule = s2f.parse.findElementAttributeRule(elementName , attributeName);
+		
+		//StringRule
+		if(rule.name == "string"){
+			//alert("rule.validate(" + sv + ") = " + rule.validate(sv));
+			if(rule.validate(sv) != true){
+				var message = "Validate the " + elementName + "'s attribute[" + attributeName + "] failure!! The value should NOT empty!";
+				alert(message);
+				return false;
+			}
+		}
+		
+		//DecimalRule
+		if(rule.name == "decimal"){
+			
+			if(rule.validate(sv) != true){
+				var message = "Decimal validate the " + elementName + "'s attribute[" + attributeName + "] failure!!";
+				alert(message);
+				return false;
+
+			}
+		}
+
+		//todo: add other rules
+	}
+
+	alert("Validate successfuly! system will save these information!");
+}
+
+// Element actions
+function selectActions(_select){
+	
+	//alert("select.value=" + _select.value);
+	var value = _select.value;
+	
+	if(value != "Actions" && value != "---"){
+		if(value.match("remove")){	
+			elementSuicide(_select);
+		}
+		if(value.match("before")){	
+			elementBefore(_select);
+		}
+		if(value.match("after")){	
+			elementAfter(_select);
+		}
+		if(value.match("insert")){	
+			elementInsert(_select);
+		}
+	}
+}
+
+
+//these methods will be insert into Schema2Html.js
+///////////////////////////////////////////////////////////////
+
+function elementBefore(_select){
+	alert("Oooop! this action will be implements in the next version!");
+}
+
+function elementAfter(_select){
+	alert("Oooop! this action will be implements in the next version!");
+}
+
+//elememt want to remove itself! - like suicide
+function elementSuicide(_select){
+
+	var thisRow = _select.parentNode.parentNode;
+	//alert("remove the row:" + thisRow.id);
+
+	changeTrState(thisRow , "none");
+}
+
+function elementInsert(_select){
+
+	//todo:judge whether can insert a new element?
+	var r = true;
+
+	if(r){
+		//add the new element
+		var thisRow = _select.parentNode.parentNode;
+		//alert("this row id =" + thisRow.id);
+		
+		var sValue = _select.value;
+		//alert("sValue=" + sValue.length);
+		
+		var elementName = sValue.substring(sValue.indexOf(":")+1);
+		//alert("element.name = " + elementName);
+
+		//test 4
+		//var trRow = document.getElementById(thisRow.id);
+		var element = s2f.parse.findElementByName(elementName);
+		if(element != null){
+			
+			var number  = getNextNumberOfRow(thisRow);		
+			//alert("number=" + number);
+			
+			
+			//todo:change it!
+			var xelement = new XElement(number , elementName , "-0-" + number);
+			s2f.xroot.addChildren(xelement);
+			xelement.setFather(s2f.xroot);
+
+			//
+			var attributes = s2f.parse.findElementAttributes(elementName);
+			for(var i=0;i<attributes.length;i++){
+				var attr = attributes[i];
+				var attrName = attr.getAttribute("name");
+				//alert("attribute.name=" + attrName);
+
+				var xattr = new XAttribute(i , attrName , "");
+				xattr.state = "new";
+				xelement.addAttribute(xattr);
+				xattr.setElement(xelement);
+			}
+			
+			//_element , _id , _fTreeId , _layer
+			s2f.printNewElement(xelement,1);
+
+		}
+		else{
+			alert("element's name can not be finded in the schema file!");
+		}
+	}
+}
+
+
+function getNextNumberOfRow(_thisRow){
+	
+	var r = 0;
+
+	var trRowArray = document.getElementById("resourcePlanTable").getElementsByTagName("tr");
+	// Look at each row in the table
+	for (var rowCount = 0; rowCount < trRowArray.length; rowCount++) {
+
+		var thisConsumer = trRowArray[rowCount];
+		
+		//alert("thisRow.id=" + _thisRow.id);
+		var index = thisConsumer.id.indexOf(_thisRow.id) + _thisRow.id.length + 1;
+		var subStr = thisConsumer.id.substring(index , index +1);
+		
+		//alert("index = " + index + "|subStr=" + subStr + "|result=" + r);
+		if (subStr > r){
+			r = subStr;
+		}
+	}
+	return parseInt(r)+1;
+}
+
+
+// Set invisibility of the row and it's childrens
+function changeTrState(_thisRow , _state){
+	
+
+	// Pick-up this method from the editableForm.js
+	// Now hide or show each row depending on the state of it's parent
+	var trRowArray = document.getElementById("resourcePlanTable").getElementsByTagName("tr");
+	
+	// Look at each row in the table
+	for (var rowCount = 0; rowCount < trRowArray.length; rowCount++) {
+
+		var thisConsumer = trRowArray[rowCount];
+		
+		// Look at each ancestor consumer if the row is a consumer
+		if(thisConsumer.id.match(_thisRow.id)) {
+			
+			//alert("dispear the element:" + thisConsumer.id);
+			//Set invisibility of the row based on parent consumer state
+			thisConsumer.style.display = _state;	
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////
+
+/*
+var tbody =  null;
+var parse = null;
+var s2f = null;
+
+init();
+function init(){
+	try{
+		var sXmlDoc = XmlDocument.create();
+		sXmlDoc.async = false;
+		sXmlDoc.load("ApplicationProfile.xsd");
+		
+		var xmlDoc = XmlDocument.create();
+		xmlDoc.async = false;
+		xmlDoc.load("ApplicationProfile.xml");
+
+		var parse = new NomralSchemaParse(sXmlDoc);
+		var tbody = document.getElementById("resourcePlanTable").tBodies[0];
+		
+		s2f = new Schema2HtmlForm(xmlDoc , parse, tbody);
+		var r = s2f.initDomTree();
+
+		s2f.printContent();
+	}
+	catch(e){
+	}
+}
+*/
+
+</SCRIPT>
+
+</FORM>
+</BODY>
+</HTML>

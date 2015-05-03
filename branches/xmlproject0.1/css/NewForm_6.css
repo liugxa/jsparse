@@ -1,0 +1,78 @@
+FIELDSET.timeSelectionFieldset {
+	FLOAT: none
+}
+FIELDSET.timeSelectionFieldset LEGEND {
+	FONT-WEIGHT: bold; FONT-SIZE: 0.6em
+}
+FIELDSET.timeSelectionFieldset SELECT.inputSelect {
+	BORDER-RIGHT: #333333 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #333333 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; BORDER-LEFT: #333333 1px solid; COLOR: #000000; PADDING-TOP: 1px; BORDER-BOTTOM: #333333 1px solid; BACKGROUND-COLOR: #ffffe6
+}
+FIELDSET.timeSelectionFieldset LABEL {
+	DISPLAY: none
+}
+FIELDSET.timeSelectionFieldset LABEL.labelRadio {
+	DISPLAY: block
+}
+FIELDSET.timeSelectionFieldset SPAN.timeStuff {
+	FONT-SIZE: 0.7em
+}
+FIELDSET.dateSelectorWidget {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px! important; BORDER-TOP: medium none; PADDING-LEFT: 30px! important; PADDING-BOTTOM: 0px! important; MARGIN: 0px; BORDER-LEFT: medium none; PADDING-TOP: 0px! important; BORDER-BOTTOM: medium none; WHITE-SPACE: nowrap
+}
+FIELDSET.dateSelectorWidget LEGEND {
+	DISPLAY: none
+}
+LEGEND A.formLinkExpandThis {
+	PADDING-RIGHT: 6px; BACKGROUND-POSITION: left center; PADDING-LEFT: 13px; BACKGROUND-IMAGE: url(../images/icon-link-ec-expand.gif); BACKGROUND-REPEAT: no-repeat
+}
+LEGEND A.formLinkContractThis {
+	PADDING-RIGHT: 6px; BACKGROUND-POSITION: left center; PADDING-LEFT: 13px; BACKGROUND-IMAGE: url(../images/icon-link-ec-contract.gif); BACKGROUND-REPEAT: no-repeat
+}
+FIELDSET.radioGroup-Boolean {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px! important; BORDER-TOP: medium none; PADDING-LEFT: 0px! important; PADDING-BOTTOM: 0px! important; MARGIN: 0px; BORDER-LEFT: medium none; PADDING-TOP: 0px! important; BORDER-BOTTOM: medium none
+}
+FIELDSET.radioGroup-Boolean LEGEND {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; FONT-WEIGHT: normal! important; FONT-SIZE: 0.7em! important; PADDING-BOTTOM: 0px! important; MARGIN: 0px; COLOR: #666666! important; PADDING-TOP: 6px! important
+}
+FIELDSET.radioGroup-Boolean LABEL {
+	PADDING-RIGHT: 6px! important; DISPLAY: inline; PADDING-LEFT: 0px! important; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0px! important; MARGIN: 0px; PADDING-TOP: 0px! important; WHITE-SPACE: nowrap
+}
+FIELDSET.propertiesRequired {
+	FLOAT: left; WIDTH: 45%; MARGIN-RIGHT: 12px! important
+}
+FIELDSET.propertiesOptional {
+	FLOAT: left; WIDTH: 45%; MARGIN-RIGHT: 12px! important
+}
+FIELDSET.propertiesRequired DIV {
+	PADDING-LEFT: 14px! important; PADDING-BOTTOM: 6px! important
+}
+FIELDSET.propertiesOptional DIV {
+	PADDING-LEFT: 14px! important; PADDING-BOTTOM: 6px! important
+}
+FIELDSET.propertiesRequired LEGEND {
+	PADDING-LEFT: 0px! important; MARGIN-LEFT: 0px! important
+}
+FIELDSET.propertiesOptional LEGEND {
+	PADDING-LEFT: 0px! important; MARGIN-LEFT: 0px! important
+}
+FIELDSET.propertiesTopLevel DIV {
+	PADDING-LEFT: 14px! important; PADDING-BOTTOM: 6px! important
+}
+BUTTON.formAdd {
+	FONT-SIZE: 0.7em
+}
+BUTTON.formRemove {
+	FONT-SIZE: 0.7em
+}
+BUTTON.formAdd {
+	FONT-WEIGHT: bold! important
+}
+BUTTON.formRemove {
+	FLOAT: right
+}
+FIELDSET.propertiesAppProfile {
+	MARGIN-RIGHT: 12px! important
+}
+FIELDSET.propertiesAppProfile DIV {
+	PADDING-LEFT: 14px! important; PADDING-BOTTOM: 6px! important
+}

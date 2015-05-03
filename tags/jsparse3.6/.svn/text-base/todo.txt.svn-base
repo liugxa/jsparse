@@ -1,0 +1,36 @@
+To do list
+Has no finished
+.modify enableAdd & enableRemove logic
+.add IContentRule & IStructRule class
+function IContentRule(){
+this.validate = function(_value){};
+}
+
+function IStructRule(){
+this.validate = function(_oper , _eName){};
+}
+
+2006.09.06
+.implement the "save" function
+.enhange SingleNSSchemaParse class
+.modify getElementChildrens method : add logic to parse the <xsd:choice> node
+.modify findElementStructRule method: above
+.add a new rule ChoiceOccursRule class
+.modify findElementChildrenStructRule method of SingleNSSchemaParse class
+.add toXml method in the domtree.js
+.modify prototype: if the element has no childrens,do not display the action options
+.add LinkListDomTreeContext class
+.add a property "imagePrefix" in the *Schema2Html
+
+
+
+
+reference
+Schema
+1> http://www.w3.org/TR/xmlschema-2/#normalizedString
+2> http://www.oracle.com/technology/global/cn/pub/articles/srivastava_datatypes.html
+3> http://www-128.ibm.com/developerworks/cn/xml/x-schema/part1/index.html
+4> http://www-128.ibm.com/developerworks/cn/xml/theme/indexcxl.html
+
+Regex
+1> http://www.z6688.com/info/34969-1.htm

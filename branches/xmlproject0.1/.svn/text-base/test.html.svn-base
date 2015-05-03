@@ -1,0 +1,20 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+
+</HEAD>
+
+
+<BODY>
+
+</BODY>
+
+	<SCRIPT language=JavaScript src="js/xmlextras.js" type=text/JavaScript></SCRIPT>
+	<SCRIPT language=JavaScript src="js/collects.js" type=text/JavaScript></SCRIPT>
+	<SCRIPT language=JavaScript src="js/validate.js" type=text/JavaScript></SCRIPT>
+
+	<SCRIPT language=JavaScript src="js/class.js" type=text/JavaScript></SCRIPT>
+	<SCRIPT language=JavaScript src="js/variable.js" type=text/JavaScript></SCRIPT>
+
+	<SCRIPT language=JavaScript src="js/schemaParse.js" type=text/JavaScript></SCRIPT>
+</HTML>

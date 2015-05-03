@@ -1,0 +1,165 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+</HEAD>
+
+
+<BODY>
+<SCRIPT language=JavaScript src="../script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/validate.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/x-variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-common.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-rule.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/x-parse.js" type=text/JavaScript></SCRIPT>
+</BODY>
+<script>
+//*******************************************************************************
+//Test cases : base on the ApplicationProfile.xsd file
+//*******************************************************************************
+var sXmlDoc = XmlDocument.create();
+sXmlDoc.async = false;
+sXmlDoc.load("../xml/ApplicationProfile.xsd");
+
+var parse = new SingleNSSchemaParse(sXmlDoc , "app" , "xs");
+var RuleFactory = new RuleFactory("xs");
+
+function _Test(){
+	
+	this.testFindRootElement = function(){
+		
+		var fname = "testFindRootElement";
+		var element = parse.findRootElement();
+
+		if(element.getAttribute("name") == "Profile"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testFindElementByName = function(){
+		var fname = "testFindElementByName";
+		var element = parse.findElementByName("Service");
+		if(element != null){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+			
+	}
+
+	this.testFindElementChildrens = function(){
+		var fname = "testFindElementChildrens";
+
+		var childs = parse.findElementChildrens("Service");
+		if(childs.length == 2 ){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testFindElementAttributes = function(){
+		var fname = "testFindElementAttributes";
+		var attris = parse.findElementAttributes("Consumer");
+		var as = parse.findElementAttributes("Service");
+
+		if(attris.length == 15 && 
+			attris[0].getAttribute("name") == "applicationName" && 
+			attris[14].getAttribute("name") == "flushDataAsap" &&
+			as.length == 3){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}	
+	}
+	this.testFindElementAttribute = function(){
+		var fname = "testFindElementAttribute";
+
+		var attribute = parse.findElementAttribute("Consumer" , "applicationLingerTime");
+		if(attribute != null){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+
+	}
+	this.testFindElementStructRule = function(){
+		var fname = "testFindElementStructRule";
+		try{
+			var rule = parse.findElementStructRule("Service");
+			if(rule.name == "occurs" && rule.max == "unbounded"){
+				_alertSuccess(fname);
+			}else{
+				_alertFailure(fname);
+			}
+		}catch(e){
+			_alertException(fname , e);			
+		}			
+	}
+
+	this.testFindElementAttributeRule = function(){
+
+		var fname = "testFindElementAttributeRule";
+		var rule = parse.findElementAttributeRule("Consumer" , "applicationLingerTime");
+		
+		//alert(rule.name + "|" + rule.min + "|" + rule.max);
+		if(rule.name == "occurs" && rule.min == 0 && rule.max == 2147483647){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testFindChildrenStructRule = function(){
+
+		var fname = "testFindChildrenStructRule";
+		var childrens = parse.findElementChildrens("SSM");
+		if(childrens.length != 2){
+			_alertException(fname , "The children's number of [SSM] is not right ! Your should testFindElementChildrens again!!");
+			return;
+		}
+
+		var childrens1 = parse.findElementChildrens("osTypes");
+		if(childrens1.length != 1){
+			_alertException(fname , "The children's number of [osTypes] is not right ! Your should testFindElementChildrens again!!");
+			return;
+		}
+
+		var rule = parse.findChildrenStructRule(childrens[1]);
+		var rule1 = parse.findChildrenStructRule(childrens1[0]);
+		
+		//alert(rule + "|" + rule1);
+		if(rule.name == "occurs" && rule.min == 0
+			&& rule1.name == "occurs" && rule1.min == 1 && rule1.max == "unbounded"){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+
+	}
+
+	this.tearDown = function(){
+		var fname = "tearDown";
+		sXmlDoc = null;
+		parse = null;
+		_alertSuccess(fname);
+	}
+}
+//*******************************************************************************
+//Test runner
+//*******************************************************************************
+autoTest();
+function autoTest(){
+	var test = new _Test();
+	for (var property in test) {
+		if(test[property] instanceof Function){
+			test[property]();
+		}
+	}
+}
+
+</script>
+</HTML>

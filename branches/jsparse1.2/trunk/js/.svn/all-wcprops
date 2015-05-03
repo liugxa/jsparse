@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js
+END
+x-s2hFunctions.js
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-s2hFunctions.js
+END
+x-schema2Html.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-schema2Html.js
+END
+x-util.js
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-util.js
+END
+validate.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/validate.js
+END
+prototype.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/prototype.js
+END
+x-variable.js
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-variable.js
+END
+x-common.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-common.js
+END
+x-collects.js
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-collects.js
+END
+x-schemaParse.js
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-schemaParse.js
+END
+x-domtree.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/x-domtree.js
+END
+xmlextras.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/js/xmlextras.js
+END

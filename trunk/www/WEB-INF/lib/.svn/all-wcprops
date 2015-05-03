@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib
+END
+struts.jar
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/struts.jar
+END
+commons-digester.jar
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/commons-digester.jar
+END
+dom4j.jar
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/dom4j.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/commons-logging.jar
+END
+commons-beanutils.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/commons-beanutils.jar
+END
+log4j-1.2.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/log4j-1.2.8.jar
+END
+commons-validator.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/commons-validator.jar
+END
+antlr.jar
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/antlr.jar
+END
+jakarta-oro.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/jakarta-oro.jar
+END
+servlet-api.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/servlet-api.jar
+END
+commons-fileupload.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/342/trunk/www/WEB-INF/lib/commons-fileupload.jar
+END

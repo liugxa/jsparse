@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/173/tags/jsparse1.4/src/script
+END
+validate.js
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/validate.js
+END
+prototype.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/prototype.js
+END
+x-variable.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/x-variable.js
+END
+x-rule.js
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/x-rule.js
+END
+x-common.js
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/x-common.js
+END
+x-parse.js
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/x-parse.js
+END
+x-domtree.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/x-domtree.js
+END
+xmlextras.js
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/xmlextras.js
+END
+x-reader.js
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/173/tags/jsparse1.4/src/script/x-reader.js
+END

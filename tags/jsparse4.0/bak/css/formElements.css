@@ -1,0 +1,333 @@
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* General formats for basic form elements. */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------ */
+/* General formats for text fields and their labels. */
+
+input.inputTextField,
+textarea.inputTextField {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #FFFFE6;
+	border: 1px solid #333333;
+	color: #000000;
+}
+
+input.inputTextField-Disabled,
+textarea.inputTextField-Disabled {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #fefefe;
+	border: 1px solid #999999;
+	color: #999999;
+}
+
+input.inputTextField-ReadOnly,
+textarea.inputTextField-ReadOnly {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #FFFFE6;
+	border: 1px solid #666666;
+	color: #666666;
+}
+
+input.inputTextField-Required,
+textarea.inputTextField-Required {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #FFFFE6;
+	border: 1px solid #ff0000;
+	color: #000000;
+}
+
+textarea.inputTextField,
+textarea.inputTextField-Disabled,
+textarea.inputTextField-ReadOnly,
+textarea.inputTextField-Required {
+	font-size: 1em;
+}
+
+label.labelTextField,
+label.labelTextField-Disabled,
+label.labelTextField-ReadOnly,
+label.labelTextField-Required {
+	padding: 1px;
+	margin: 0px;
+	color: #666666;
+	font-size: .7em;
+	display: block;
+	padding-top: 6px;
+}
+
+label.labelTextField-Disabled {
+	color: #999999;
+}
+label.labelTextField-ReadOnly {
+	color: #666666;
+}
+label.labelTextField-Required {
+	color: #ff0000;
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* General formats for select fields (menus) and their labels. */
+
+select.inputSelect {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #FFFFE6;
+	border: 1px solid #333333;
+	color: #000000;
+}
+
+select.inputSelect-Disabled {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #fefefe;
+	border: 1px solid #999999;
+	color: #999999;
+}
+
+select.inputSelect-ReadOnly {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #FFFFE6;
+	border: 1px solid #666666;
+	color: #666666;
+}
+
+select.inputSelect-Required {
+	font-size: 0.7em;
+	padding: 1px;
+	background-color: #FFFFE6;
+	border: 1px solid #ff0000;
+	color: #000000;
+}
+
+label.labelSelect,
+label.labelSelect-Disabled,
+label.labelSelect-ReadOnly,
+label.labelSelect-Required {
+	padding: 1px;
+	margin: 0px;
+	color: #666666;
+	font-size: .7em;
+	display: block;
+	padding-top: 6px;
+}
+
+label.labelSelect-Disabled {
+	color: #999999;
+}
+label.labelSelect-ReadOnly {
+	color: #666666;
+}
+label.labelSelect-Required {
+	color: #ff0000;
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* General formats for radio buttons, checkboxes, and their labels. */
+
+fieldset.radioGroup-1,
+fieldset.radioGroup-2 {
+	float: none;
+	padding: .25em;
+	margin-top: .25em;
+}
+
+fieldset.radioGroup-1 legend,
+fieldset fieldset.radioGroup-2 legend {
+	font-weight: bold;
+	font-size: .6em;
+}
+
+fieldset.radioGroup-1 label {
+	display: block;
+	font-size: .7em;
+	white-space: nowrap;
+}
+
+fieldset.radioGroup-2 label {
+	display: inline;
+	font-size: 0.7em;
+	white-space: nowrap;
+}
+
+
+label.labelCheckbox,
+label.labelCheckbox-Disabled,
+label.labelCheckbox-ReadOnly,
+label.labelCheckbox-Required,
+label.labelRadio,
+label.labelRadio-Disabled,
+label.labelRadio-ReadOnly,
+label.labelRadio-Required {
+	padding: 1px;
+	margin: 0px;
+	color: #000000;
+	font-size: .7em;
+	display: block;
+	padding-top: 0px;
+}
+
+label.labelCheckbox-Disabled,
+label.labelRadio-Disabled {
+	color: #999999;
+}
+label.labelCheckbox-ReadOnly,
+label.labelRadio-ReadOnly {
+	color: #666666;
+}
+label.labelCheckbox-Required,
+label.labelRadio-Required {
+	color: #ff0000;
+}
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+/* Format more complex form widgets. */
+/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------ */
+/* Time selection widget formatting. */
+
+fieldset.pmcForm-TimePeriodSelection {
+	float: none;
+}
+fieldset.pmcForm-TimePeriodSelection legend {
+	font-weight: bold;
+	font-size: .7em !important;
+}
+
+
+fieldset.pmcForm-TimePeriodSelection fieldset.chooseMethod {
+	margin: 0px;
+	border: none;
+}
+fieldset.pmcForm-TimePeriodSelection fieldset.chooseMethod legend {
+	display: none;
+	margin: 0px;
+}
+
+
+fieldset.pmcForm-TimePeriodSelection fieldset.selectorWidget,
+fieldset.pmcForm-TimePeriodSelection fieldset.rangeWidget {
+	margin-left: 24px;
+}
+fieldset.pmcForm-TimePeriodSelection fieldset.selectorWidget legend,
+fieldset.pmcForm-TimePeriodSelection fieldset.rangeWidget legend{
+	font-weight: normal;
+	margin: 0px;
+}
+fieldset.pmcForm-TimePeriodSelection fieldset.selectorWidget label {
+	display: none;
+}
+
+fieldset.pmcForm-TimePeriodSelection fieldset.selectorWidget span.timeContext {
+	font-size: 0.7em;
+}
+
+/* ------------------------------------------------------------------------ */
+/* "Pick One" widget formatting. */
+
+div.pmcForm-PickOne {
+	float: none;
+}
+
+/* ------------------------------------------------------------------------ */
+/* "Pick Many" widget formatting. */
+
+div.pmcForm-PickMany {
+	float: none;
+}
+
+div.pmcForm-PickMany button.pmcForm-PickManyAddItem {
+	background-image:      url(../images/icon-list-button-add.gif);
+	background-repeat: no-repeat;
+	background-position: 95% center;
+	padding-right: 12px;
+	padding-left: 12px;
+	margin-right: 6px;
+	margin-left: 6px;
+	width: 8em;
+	display: block;
+}
+div.pmcForm-PickMany button.pmcForm-PickManyRemoveItem {
+	background-image:      url(../images/icon-list-button-remove.gif);
+	background-repeat: no-repeat;
+	background-position: 5% center;
+	padding-right: 12px;
+	padding-left: 12px;
+	margin-right: 6px;
+	margin-left: 6px;
+	width: 8em;
+	display: block;
+}
+
+/* ------------------------------------------------------------------------ */
+/* "Pick Many (Checkbox)" widget formatting. */
+
+fieldset.pmcForm-PickMany-Checkbox {
+	padding: 0px;
+	margin: 0px;
+	float: none;
+}
+
+fieldset.pmcForm-PickMany-Checkbox div {
+	padding: 0px;
+	margin: 0px;
+	float: left;
+}
+
+fieldset.pmcForm-PickMany-Checkbox div label {
+	padding: 3px;
+	margin-right: 12px;
+}
+
+fieldset.pmcForm-PickMany-Checkbox legend {
+	padding: 0px;
+	margin: 0px;
+	font-weight: normal !important;
+	color: #666666;
+}
+
+
+/* ------------------------------------------------------------------------ */
+/* "Specify Size" widget formatting. */
+
+fieldset.pmcForm-SpecifySize {
+	padding: 0px;
+	margin: 0px;
+	float: none;
+	border: none !important;
+}
+fieldset.pmcForm-SpecifySize legend {
+	display: none;
+}
+
+fieldset.pmcForm-SpecifySize label.labelTextField {
+	display: none;
+}
+
+/* ------------------------------------------------------------------------ */
+/* "Retrieve" button formatting. */
+
+div.pmcForm-buttonRetrieve {
+	padding: 0px;
+	margin: 0px;
+	float: left; 
+	clear: both; 
+}
+

@@ -1,0 +1,299 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+
+<SCRIPT language=JavaScript src="../script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/validate.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/x-variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-common.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-rule.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-parse.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/x-context.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-domtree.js" type=text/JavaScript></SCRIPT>
+
+<!-- UnitTest.js -->
+<SCRIPT language=JavaScript src="../script/prototype.js" type=text/JavaScript></SCRIPT>
+<script language=Javascript src="unittest.js"type=text/JavaScript></script>	
+<link rel="stylesheet" href="test.css" type="text/css" />
+</HEAD>
+
+
+<BODY>
+<div id="testlog"> </div>
+<div id="activeRecord"> </div>
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+
+//*******************************************************************************
+//Test cases - test the file ApplicationProfile.xml & ApplicationProfile.xsd
+//*******************************************************************************
+var XML_FILE = "../xml/xml/ApplicationProfile.xml";
+var SCHEMA_FILE = "../xml/schema/ApplicationProfile-doc1.xsd";
+
+var context = new DefaultDomTreeContext(true);
+context.initilize(XML_FILE , SCHEMA_FILE , "" , "xs");
+context.setLazyLoading(true);
+
+var domTree = new DefaultDomTree(context , "Profile");
+new Test.Unit.Runner({
+
+	testInit: function(){with(this){
+		domTree.init();
+		assertNotNull(domTree.context);
+		}
+	}
+	,
+	testGetRoot: function(){with(this){
+		var root = domTree.getRoot();
+		assertNotNull(root);
+		assertEqual("Profile" , root.getName());
+		}
+	},
+	testGetElement: function(){with(this){
+		var element = domTree.getElement(1);
+		//test element
+		assertNotNull(element);
+		assertEqual("Consumer" , element.getName());
+
+		//tese element's rule
+		var rule = element.getRule();
+		assertEqual("occurs",rule.name);
+		assertEqual(1 , rule.min);
+		
+		//test element's attributes
+		var attributes = element.getAttributes();
+		assertEqual(15 , attributes.length);	
+		assertEqual("applicationName" , attributes[0].name);
+		assertEqual("flushDataAsap" , attributes[14].name);
+		assertEqual("consumerId001" , attributes[1].value);
+
+		//test attribute's rule
+		assertEqual("printableString" , attributes[0].rule.name);
+		assertEqual("boolean" , attributes[14].rule.name);
+		}
+	},
+	testHasChildrens: function(){with(this){
+		var b = domTree.hasChildrens(1);
+		assertEqual(false , b);
+		}
+	},
+	testGetChildrens: function(){with(this){
+		var childrens = domTree.getChildrens(2);
+		//lazyloading....
+		domTree.addChildrens(domTree.getElement(2));
+
+		assertEqual(2 , childrens.length);
+		assertEqual("osTypes" , childrens[0].getName());
+		assertEqual("Control" , childrens[1].getName());
+
+		//test rule of the childrens
+		assertEqual("occurs" , childrens[1].getRule().name);
+		assertEqual(0 , childrens[1].getRule().min);
+		}
+	},
+	testAddElement: function(){with(this){
+		domTree.addElement(0 , "Consumer");
+		}
+	},
+	testRemoveElement: function(){with(this){
+		domTree.removeElement(3);
+		}
+	},
+	testFindAllAttributes: function(){with(this){
+		var as = domTree.getAllAvailAttributes("Service");
+		assertEqual(3 , as.length);
+		}
+	},
+	testFindAllChildrens: function(){with(this){
+		var cs = domTree.getAllAvailChildrens("SOAM");
+		assertEqual(8 , cs.length);
+		}
+	},
+	testToXml: function(){with(this){
+		var xml = domTree.toXml();
+		var handle = document.getElementById("activeRecord");
+		handle.innerHTML = xml;
+		}
+	}
+}, "testlog");
+
+
+/*
+function _Test(){
+	
+	this.testInit = function(){
+		var fname = "testInit";
+		domTree.init("Profile");
+		if(domTree.getReader() != null){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testGetRoot = function(){
+		var fname = "testGetRoot";
+		
+		var root = domTree.getRoot();
+		if(root == null || root.getName() != "Profile"){
+			_alertFailure(fname, "root name is not Profile");
+		}else{
+			_alertSuccess(fname);
+		}
+	}
+
+	this.testGetElement = function(){
+		var fname = "testGetElement";
+		
+		var element = domTree.getElement(1);
+
+		//test element
+		if(element == null || element.getName() != "Consumer"){
+			_alertFailure(fname , "element is null or name is error!");
+			return;
+		}
+		//tese element's rule
+		var rule = element.getRule();
+		if(rule.name != "occurs" || rule.min != 1){
+			_alertFailure(fname , "the rule of the element is error!");
+			return;
+		}
+		
+		//test element's attributes
+		var attributes = element.getAttributes();
+		if(attributes.length != 15){
+			_alertFailure(fname , "the attributes number of the element is error!");
+			return;
+		}
+
+		if(	attributes[0].name != "applicationName" ||
+			attributes[14].name != "flushDataAsap" ||
+			attributes[1].value != "consumerId001"){
+			_alertFailure(fname , "the name of the attribute is error!");
+			return;
+		}
+
+		//test attribute's rule
+		if(	attributes[0].rule.name != "normalizedString" ||
+			attributes[14].rule.name != "boolean"){
+
+			_alertFailure(fname , "the rule of the attribute is error!");
+			return;
+		}
+
+		_alertSuccess(fname);
+	}
+	this.testHasChildrens = function(){
+		var fname = "testHasChildrens";
+
+		var b = domTree.hasChildrens(1);
+		if(b){
+			_alertFailure(fname, "the element [Consumer] has no children!");
+			return;
+		}
+
+		_alertSuccess(fname);
+	}
+
+	this.testGetChildrens = function(){
+		var fname = "testGetChildrens";
+		
+		var childrens = domTree.getChildrens(2);
+		//alert("childrens.length=" + childrens.length);
+		if(childrens.length != 2){
+			_alertFailure(fname , "the numbers of childrens[Service] is error!");
+			return;
+		}
+
+		if(childrens[0].getName() != "osTypes" || childrens[1].getName() != "Control"){
+			_alertFailure(fname , "the name of childrens[Service] is error!");
+			return;
+		}
+
+		//test rule of the childrens
+		if(childrens[1].getRule().name != "occurs" || childrens[1].getRule().min != 0){
+			_alertFailure(fname , "the rule of childrens[Service] is error!");
+			return;
+		}
+
+		_alertSuccess(fname);
+	}
+
+	this.testAddElement = function(){
+		var fname = "testAddElement";
+		
+		try{
+			//test add "Consumer" element ok!
+			domTree.addElement(0 , "Consumer");
+			_alertSuccess(fname);
+		}catch(e){
+			_alertException(fname , e);
+		}
+	}
+
+	this.testRemoveElement = function(){
+		var fname = "testRemoveElement";
+
+		//test remove osType
+		try{
+			domTree.removeElement(3);
+			_alertSuccess(fname);
+		}catch(e){
+			_alertException(fname , e);
+		}
+	}
+
+	this.testFindAllAttributes = function(){
+		var fname = "testFindAllAttributes";
+
+		var as = domTree.getAllAvailAttributes("Service");
+		if(as.length == 3){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+	
+	this.testFindAllChildrens = function(){
+		var fname = "testFindAllChildrens";
+
+		var cs = domTree.getAllAvailChildrens("SOAM");
+		if(cs.length == 8){
+			_alertSuccess(fname);
+		}else{
+			_alertFailure(fname);
+		}
+	}
+
+	this.testToXml = function(){
+		var fname = "testToXml";
+		var xml = domTree.toXml();
+		if(xml == null){
+			_alertFailure(fname);
+		}else{
+			_alertSuccess(fname);
+			alert(xml);
+		}
+	}
+}
+
+//*******************************************************************************
+//Test:
+//*******************************************************************************
+autoTest();
+function autoTest(){
+	//var test = new _Test_Application();
+	var test = new _Test();
+	for (var property in test) {
+		if(test[property] instanceof Function){
+			test[property]();
+		}
+	}
+}
+*/
+</script>
+
+</BODY>
+</HTML>

@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Platform -->
+<!-- edited by (Platform Computing Inc.) -->
+<xs:schema xmlns:app="http://www.platform.com/Symphony/Profile/Application" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.platform.com/Symphony/Profile/Application" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Profile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Consumer">
+					<xs:complexType>
+						<xs:attribute name="applicationName" type="xs:normalizedString" use="required"/>
+						<xs:attribute name="consumerId" type="xs:string" use="required"/>
+						<xs:attribute name="resourceGroupName" type="xs:string" use="optional"/>
+						<xs:attribute name="resReq" type="xs:string" use="required"/>
+						<xs:attribute name="policy" use="optional" default="R_Proportion">
+							<xs:simpleType>
+								<xs:restriction base="xs:normalizedString">
+									<xs:enumeration value="R_Proportion"/>
+									<xs:enumeration value="R_FCFS"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="taskHighWaterMark" use="optional" default="1.0">
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minExclusive value="0.0"/>
+									<xs:fractionDigits value="5"/>
+									<xs:totalDigits value="15"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="taskLowWaterMark" use="optional" default="0.0">
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0.0"/>
+									<xs:fractionDigits value="5"/>
+									<xs:totalDigits value="15"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="resourceBalanceInterval" use="optional" default="5">
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="sessionSchedulingInterval" use="optional" default="500">
+							<xs:simpleType>
+								<xs:restriction base="xs:positiveInteger">
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="applicationLingerTime" use="optional" default="300">
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="preStartApplication" type="xs:boolean" use="optional" default="false"/>
+						<xs:attribute name="numOfPreloadedServices" use="optional" default="1">
+							<xs:simpleType>
+								<xs:restriction base="xs:positiveInteger">
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="transientDisconnectionTimeout" use="optional" default="10">
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="ssmRecoveryTime" use="optional" default="10">
+							<xs:simpleType>
+								<xs:restriction base="xs:nonNegativeInteger">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="2147483647"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="flushDataAsap" type="xs:boolean" use="optional" default="false"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SOAM" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="SSM">
+								<xs:complexType mixed="true">
+									<xs:sequence>
+										<xs:element name="osTypes">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="osType" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="env" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:normalizedString">
+																				<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="name" type="xs:string" use="required"/>
+															<xs:attribute name="startCmd" type="xs:string" use="optional"/>
+															<xs:attribute name="workDir" type="xs:string" use="optional"/>
+															<xs:attribute name="runAs" type="xs:string" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="boundaryManagerConfig" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="elementDefinitions" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="boundaryElement" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="additionalConfig" minOccurs="0" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:attribute name="name" type="xs:string"/>
+																					<xs:attribute name="value" type="xs:string"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute name="name" type="xs:string"/>
+																		<xs:attribute name="description" type="xs:string"/>
+																		<xs:attribute name="minValue" type="xs:double"/>
+																		<xs:attribute name="maxValue" type="xs:double"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="boundaries" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="boundary" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="event" minOccurs="0" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:attribute name="name">
+																						<xs:simpleType>
+																							<xs:restriction base="xs:string">
+																								<xs:enumeration value="BEV_PROACTIVE"/>
+																								<xs:enumeration value="BEV_SEVERE"/>
+																								<xs:enumeration value="BEV_CRITICAL"/>
+																								<xs:enumeration value="BEV_HALT"/>
+																							</xs:restriction>
+																						</xs:simpleType>
+																					</xs:attribute>
+																					<xs:attribute name="value" type="xs:double"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute name="elementName">
+																			<xs:simpleType>
+																				<xs:restriction base="xs:string"/>
+																			</xs:simpleType>
+																		</xs:attribute>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="globalConfig" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attribute name="name">
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:enumeration value="dataCollectionInterval"/>
+																		<xs:enumeration value="memoryReserveInKilobytes"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:attribute>
+															<xs:attribute name="value" type="xs:string"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="enabled" type="xs:boolean"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="startUpTimeout" type="xs:positiveInteger" default="60"/>
+									<xs:attribute name="shutDownTimeout" type="xs:positiveInteger" default="300"/>
+									<xs:attribute name="disableFlowControl" type="xs:boolean" default="false"/>
+									<xs:attribute name="resReq" type="xs:string" use="required"/>
+									<xs:attribute name="resourceGroupName" type="xs:string" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="SIM">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="osTypes">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="osType" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="env" minOccurs="0" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:simpleContent>
+																			<xs:extension base="xs:normalizedString">
+																				<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+																			</xs:extension>
+																		</xs:simpleContent>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="name" type="xs:string" use="required"/>
+															<xs:attribute name="startCmd" type="xs:string" use="optional"/>
+															<xs:attribute name="workDir" type="xs:string" use="optional"/>
+															<xs:attribute name="runAs" type="xs:string" use="optional"/>
+															<xs:attribute name="preExecCmd" type="xs:string" use="optional"/>
+															<xs:attribute name="postExecCmd" type="xs:string" use="optional"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="startUpTimeout" type="xs:positiveInteger" use="optional" default="120"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="DataHistory" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="pollFrequency" use="optional" default="10">
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="10"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="fileSwitchTime" use="optional" default="24">
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="168"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="fileSwitchSize" use="optional" default="100">
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="100"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="lastingPeriod" use="optional" default="96">
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="168"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="lastingPeriodInSeconds" type="xs:positiveInteger" use="optional"/>
+									<xs:attribute name="path" type="xs:string" use="optional"/>
+									<xs:attribute name="delimiter" type="xs:string" use="optional" default=","/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PagingTasksInput" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="PagingMode" minOccurs="3" maxOccurs="3">
+											<xs:complexType>
+												<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+												<xs:attribute name="readPriority" type="xs:positiveInteger" use="required"/>
+												<xs:attribute name="writePriority" type="xs:positiveInteger" use="required"/>
+												<xs:attribute name="removePriority" type="xs:positiveInteger" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="4096"/>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="4294967296"/>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="4194304"/>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PagingTasksOutput" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="PagingMode" minOccurs="3" maxOccurs="3">
+											<xs:complexType>
+												<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+												<xs:attribute name="readPriority" type="xs:positiveInteger" use="required"/>
+												<xs:attribute name="writePriority" type="xs:positiveInteger" use="required"/>
+												<xs:attribute name="removePriority" type="xs:positiveInteger" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="4096"/>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="4294967296"/>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="4194304"/>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="PagingCommonData" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence minOccurs="0">
+										<xs:element name="PagingMode" minOccurs="3" maxOccurs="3">
+											<xs:complexType>
+												<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+												<xs:attribute name="readPriority" type="xs:positiveInteger" use="required"/>
+												<xs:attribute name="writePriority" type="xs:positiveInteger" use="required"/>
+												<xs:attribute name="removePriority" type="xs:positiveInteger" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="4096"/>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="8589934592"/>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="10000"/>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="JournalingTasks" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="256"/>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="1073741824"/>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="2000000"/>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="JournalingSessions" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="path" type="xs:normalizedString" use="optional"/>
+									<xs:attribute name="blockSize" type="xs:positiveInteger" use="optional" default="2048"/>
+									<xs:attribute name="diskSpace" type="xs:unsignedLong" use="optional" default="536870912"/>
+									<xs:attribute name="bitmapBits" type="xs:unsignedLong" use="optional" default="10000"/>
+									<xs:attribute name="pmeType" type="xs:positiveInteger" use="optional" default="2"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SessionTypes" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Type" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attribute name="name" type="xs:string" use="required"/>
+									<xs:attribute name="priority" use="optional" default="1">
+										<xs:simpleType>
+											<xs:restriction base="xs:positiveInteger">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="10000"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="recoverable" type="xs:boolean" use="optional" default="false"/>
+									<xs:attribute name="sessionRetryLimit" use="optional" default="3">
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="taskRetryLimit" use="optional" default="3">
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="taskGracePeriod" use="optional" default="100">
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="taskCleanupPeriod" use="optional" default="250">
+										<xs:simpleType>
+											<xs:restriction base="xs:nonNegativeInteger">
+												<xs:minInclusive value="0"/>
+												<xs:maxInclusive value="2147483647"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="abortSessionIfTaskFail" type="xs:boolean" use="optional" default="false"/>
+									<xs:attribute name="abortSessionIfClientDisconnect" type="xs:boolean" use="optional" default="true"/>
+									<xs:attribute name="persistSessionHistory" use="optional" default="all">
+										<xs:simpleType>
+											<xs:restriction base="xs:normalizedString">
+												<xs:enumeration value="none"/>
+												<xs:enumeration value="all"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="persistTaskHistory" use="optional" default="error">
+										<xs:simpleType>
+											<xs:restriction base="xs:normalizedString">
+												<xs:enumeration value="none"/>
+												<xs:enumeration value="all"/>
+												<xs:enumeration value="error"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Service" maxOccurs="2">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="osTypes">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="osType" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="env" minOccurs="0" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension base="xs:normalizedString">
+																	<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+												<xs:attribute name="startCmd" type="xs:string" use="required"/>
+												<xs:attribute name="workDir" type="xs:string" use="optional"/>
+												<xs:attribute name="packageUrl" type="xs:normalizedString" use="optional"/>
+												<xs:attribute name="runAs" type="xs:normalizedString" use="optional"/>
+												<xs:attribute name="preExecCmd" type="xs:string" use="optional"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Control" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Timeout" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="method" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:normalizedString">
+															<xs:enumeration value="Register"/>
+															<xs:enumeration value="CreateService"/>
+															<xs:enumeration value="DestroyService"/>
+															<xs:enumeration value="SessionEnter"/>
+															<xs:enumeration value="SessionLeave"/>
+															<xs:enumeration value="Invoke"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="duration" type="xs:positiveInteger" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ControlCode" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="method" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:normalizedString">
+															<xs:enumeration value="Register"/>
+															<xs:enumeration value="CreateService"/>
+															<xs:enumeration value="DestroyService"/>
+															<xs:enumeration value="SessionEnter"/>
+															<xs:enumeration value="SessionLeave"/>
+															<xs:enumeration value="Invoke"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="code" type="xs:integer" use="required"/>
+												<xs:attribute name="action" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:normalizedString">
+															<xs:enumeration value="Restart"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:normalizedString" use="required"/>
+						<xs:attribute name="description" type="xs:string" use="optional"/>
+						<xs:attribute name="deploymentTimeout" type="xs:positiveInteger" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:choice minOccurs="0" maxOccurs="2">
+					<xs:element name="Version" type="xs:string" minOccurs="0"/>
+					<xs:element name="ApplicationProfileGuid" type="xs:string" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:normalizedString" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

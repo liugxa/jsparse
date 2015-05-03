@@ -1,0 +1,52 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+<!-- Third party -->
+<SCRIPT language=JavaScript src="../script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/validate.js" type=text/JavaScript></SCRIPT>
+
+<!-- Dom tree -->
+<SCRIPT language=JavaScript src="../script/x-variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-common.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-parse.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-domtree.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/prototype.js" type=text/JavaScript></SCRIPT>
+<script language="javascript" src="unittest.js"></script>	
+<link rel="stylesheet" href="test.css" type="text/css" />
+</HEAD>
+
+
+<BODY>
+<div id="testlog"> </div>
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+/*
+var XML_FILE = "../xml/ApplicationProfile.xml";
+var SCHEMA_FILE = "../xml/ApplicationProfile.xsd";
+
+var reader = new DefaultDomTreeReader();
+reader.init(XML_FILE , SCHEMA_FILE);
+var domTree = new DefaultDomTree(reader);
+
+new Test.Unit.Runner({
+	testInit: function(){
+		with(this){
+			domTree.init("Profile");
+			assertNotNull(domTree.getReader());
+		}
+	},
+	testGetRoot: function(){
+		with(this){
+			var root = domTree.getRoot();
+			assertNotNull(root);
+			assertEqual('Profile' , root.getName());
+		}
+	}
+
+}, "testlog");
+*/
+</script>
+
+</BODY>
+</HTML>

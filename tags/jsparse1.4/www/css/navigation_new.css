@@ -1,0 +1,45 @@
+DIV.topTabNavModule {
+	FONT-SIZE: 0.7em; PADDING-BOTTOM: 2px; MARGIN: 19px 0px 0px; PADDING-TOP: 2px; BORDER-BOTTOM: #014175 4px solid; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #7da0c5; max-width: 100%
+}
+DIV.topTabNavModule DIV {
+	BORDER-RIGHT: #6d87a4 1px solid; PADDING-RIGHT: 1em; DISPLAY: inline; PADDING-LEFT: 1em; Z-INDEX: 200; PADDING-BOTTOM: 2px; MARGIN: 0px 0px 12px; COLOR: #ffffff; PADDING-TOP: 2px; BACKGROUND-COLOR: #7da0c5
+}
+DIV.topTabNavModule DIV A {
+	WHITE-SPACE: nowrap
+}
+DIV.topTabNavModule DIV.currentTab {
+	PADDING-RIGHT: 1em; PADDING-LEFT: 1em; MARGIN: 0px 0px 12px; COLOR: #ffffff; BACKGROUND-COLOR: #014175
+}
+DIV.appNavExtra {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; FONT-SIZE: 0.65em; Z-INDEX: 100; RIGHT: 10px; PADDING-BOTTOM: 0px! important; MARGIN: 0px; PADDING-TOP: 0px! important; WHITE-SPACE: nowrap; POSITION: absolute; TOP: 4px; max-width: 100%
+}
+DIV.appNavExtra DIV {
+	PADDING-RIGHT: 0.5em; DISPLAY: inline; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #999999; PADDING-TOP: 0px
+}
+DIV.topTabNavModule DIV A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+DIV.topTabNavModule DIV A:link {
+	COLOR: #ffffff
+}
+DIV.topTabNavModule DIV A:visited {
+	COLOR: #ffffff
+}
+DIV.topTabNavModule DIV A:hover {
+	COLOR: #ffff00; TEXT-DECORATION: underline
+}
+DIV.topTabNavModule DIV A:active {
+	COLOR: #ffffff
+}
+DIV.topTabNavModule DIV.currentTab A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+DIV.topTabNavModule DIV.currentTab A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+DIV.topTabNavModule DIV.currentTab A:hover {
+	COLOR: #ffff00; TEXT-DECORATION: underline
+}
+DIV.topTabNavModule DIV.currentTab A:active {
+	COLOR: #ffffff; TEXT-ALIGN: left; TEXT-DECORATION: none
+}

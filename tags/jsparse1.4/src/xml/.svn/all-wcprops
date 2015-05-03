@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/173/tags/jsparse1.4/src/xml
+END
+ApplicationProfile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/173/tags/jsparse1.4/src/xml/ApplicationProfile.xml
+END
+ApplicationProfile.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/173/tags/jsparse1.4/src/xml/ApplicationProfile.xsd
+END
+ego.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/173/tags/jsparse1.4/src/xml/ego.xsd
+END
+gui_service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/173/tags/jsparse1.4/src/xml/gui_service.xml
+END
+sc.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/173/tags/jsparse1.4/src/xml/sc.xsd
+END

@@ -1,0 +1,108 @@
+DIV.propsTabs {
+	FONT-SIZE: 0.7em; PADDING-BOTTOM: 2px; MARGIN: 3px 0px 0px; PADDING-TOP: 2px; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #7da0c5; max-width: 100%
+}
+DIV.propsTabs DIV {
+	BORDER-RIGHT: #6d87a4 1px solid; PADDING-RIGHT: 1em; DISPLAY: inline; PADDING-LEFT: 1em; Z-INDEX: 200; PADDING-BOTTOM: 2px; MARGIN: 0px 0px 12px; COLOR: #ffffff; PADDING-TOP: 2px; BACKGROUND-COLOR: #7da0c5
+}
+DIV.propsTabs DIV A {
+	WHITE-SPACE: nowrap
+}
+DIV.propsTabs DIV.currentTab {
+	PADDING-RIGHT: 1em; PADDING-LEFT: 1em; MARGIN: 0px 0px 12px; COLOR: #ffffff; BACKGROUND-COLOR: #014175
+}
+DIV.propsTabs DIV A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+DIV.propsTabs DIV A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+DIV.propsTabs DIV A:hover {
+	COLOR: #ffff00; TEXT-DECORATION: underline
+}
+DIV.propsTabs DIV A:active {
+	COLOR: #ffffff; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+DIV.propsTabs DIV.currentTab A:link {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+DIV.propsTabs DIV.currentTab A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+DIV.propsTabs DIV.currentTab A:hover {
+	COLOR: #ffff00; TEXT-DECORATION: underline
+}
+DIV.propsTabs DIV.currentTab A:active {
+	COLOR: #ffffff; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+DIV.contentObjects {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0em; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 6px
+}
+DIV.objectProps {
+	PADDING-TOP: 0.5em
+}
+DIV.objectProps DIV {
+	PADDING-LEFT: 1em
+}
+DIV.objectProps H1 {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 2px; MARGIN: 0px 0px 0.5em; COLOR: #ffffff; PADDING-TOP: 2px; BACKGROUND-COLOR: #014175
+}
+DIV.objectProps H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 0.9em; PADDING-BOTTOM: 4px; MARGIN: 0px; PADDING-TOP: 2px
+}
+DIV.objectProps P {
+	MARGIN: 0px; PADDING-TOP: 0px
+}
+DIV.objectProps DIV.charts {
+	PADDING-LEFT: 0em; FONT-SIZE: 1px
+}
+DIV.objectProps DIV.charts IMG {
+	BORDER-RIGHT: #999999 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #999999 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 6px 6px 0px; BORDER-LEFT: #999999 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #999999 1px solid
+}
+DIV.objectProps DIV.sourceCode {
+	PADDING-LEFT: 1em; WHITE-SPACE: pre
+}
+TABLE.propsReadTable {
+	PADDING-RIGHT: 0em; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 0em; PADDING-BOTTOM: 0em; PADDING-TOP: 0em
+}
+TABLE.propsReadTable TR {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #666666; PADDING-TOP: 0px; BORDER-BOTTOM: #cccccc 1px solid
+}
+TABLE.propsReadTable TH {
+	PADDING-RIGHT: 0em; PADDING-LEFT: 1em; FONT-WEIGHT: normal; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0.25em; MARGIN: 0px; VERTICAL-ALIGN: top; COLOR: #666666; PADDING-TOP: 0.25em; BORDER-BOTTOM: #cccccc 1px solid; TEXT-ALIGN: left
+}
+TABLE.propsReadTable TH SPAN.shortName {
+	
+}
+TABLE.propsReadTable TD {
+	PADDING-RIGHT: 0em; PADDING-LEFT: 1em; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0.25em; MARGIN: 0px; VERTICAL-ALIGN: top; COLOR: #000000; PADDING-TOP: 0.25em; BORDER-BOTTOM: #cccccc 1px solid
+}
+TABLE.propsReadTable TH H2 {
+	FONT-SIZE: 100%; TEXT-ALIGN: left
+}
+TABLE.propsReadTable TH H3 {
+	FONT-SIZE: 100%; TEXT-ALIGN: left
+}
+DIV.adminArea {
+	PADDING-RIGHT: 0.5em; BORDER-TOP: #666666 2px solid; PADDING-LEFT: 0.5em; FONT-SIZE: 0.7em; PADDING-BOTTOM: 1px; PADDING-TOP: 0px; BORDER-BOTTOM: #666666 2px solid; BACKGROUND-COLOR: #ffffe6; TEXT-ALIGN: right
+}
+DIV.windowControlsRefresh DIV.propertiesLastRefresh {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; Z-INDEX: 100; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 3px; TEXT-ALIGN: right
+}
+DIV.windowControlsRefresh DIV.propertiesLastRefresh P {
+	CLEAR: both; PADDING-RIGHT: 2px; PADDING-LEFT: 0px; FONT-SIZE: 0.65em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #666666; PADDING-TOP: 2px; POSITION: relative
+}
+DIV.windowControlsRefresh DIV.propertiesLastRefresh LABEL {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; FONT-SIZE: 0.65em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #666666; PADDING-TOP: 2px; POSITION: relative
+}
+DIV.windowControlsRefresh DIV.propertiesLastRefresh BUTTON {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 0px! important; FONT-SIZE: 0.65em; FLOAT: right; PADDING-BOTTOM: 0px! important; MARGIN: 0px; PADDING-TOP: 0px! important; FONT-STYLE: normal; POSITION: relative
+}
+DIV.windowControls {
+	PADDING-RIGHT: 0px! important; BORDER-TOP: #000000 2px solid; PADDING-LEFT: 0px! important; PADDING-BOTTOM: 0px! important; MARGIN: 1.5em 0px 0px; PADDING-TOP: 0.25em! important; POSITION: relative
+}
+DIV.windowControlsRefresh {
+	PADDING-RIGHT: 0px! important; BORDER-TOP: #000000 2px solid; PADDING-LEFT: 0px! important; PADDING-BOTTOM: 0px! important; MARGIN: 1.5em 0px 0px; PADDING-TOP: 0.25em! important; POSITION: relative
+}
+DIV.windowControlsRefresh BUTTON {
+	FLOAT: left
+}

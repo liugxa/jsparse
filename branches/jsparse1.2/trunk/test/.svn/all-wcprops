@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/test
+END
+testSchemaParse.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/test/testSchemaParse.html
+END
+testDomTree.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/test/testDomTree.html
+END
+testSchema2html.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/75/branches/jsparse1.2/trunk/test/testSchema2html.html
+END

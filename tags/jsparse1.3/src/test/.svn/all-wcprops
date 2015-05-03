@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/140/tags/jsparse1.3/src/test
+END
+unittest.js
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/140/tags/jsparse1.3/src/test/unittest.js
+END
+test.css
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/140/tags/jsparse1.3/src/test/test.css
+END
+testParse.html
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/140/tags/jsparse1.3/src/test/testParse.html
+END
+testDomTree.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/140/tags/jsparse1.3/src/test/testDomTree.html
+END

@@ -1,0 +1,68 @@
+/* ------------------------------------------------------------------------ */
+/* Format error messages for invalid input. */
+
+td span.formError {
+	display: block; 
+	color: red; 
+	font-weight: bold;
+}
+
+td span.formError span.formErrorToggle {
+	display: inline; 
+	color: black; 
+	font-weight: normal;
+}
+
+
+
+
+
+div.xmlTablePreferences {
+	padding: .5em !important;
+	background-color: #ffeeee;
+	float: right;
+	margin-bottom: .5em;
+	position: absolute;
+	right: 10px;
+	top: 2.5em;
+}
+
+div.xmlTablePreferences label {
+	display: block;
+	font-size: .7em;
+	padding-top: .5em;
+}
+
+div.xmlTablePreferences h2 {
+	font-size: .8em;
+}
+
+div.xmlTablePreferences button {
+	font-size: .65em;
+	margin-top: 1em !important;
+}
+
+div.pageAdmin {
+	text-align: right;
+	padding-bottom: .5em;
+}
+div.pageAdmin p {
+	display: inline;
+	padding-left: 1em;
+}
+
+div.pageAdmin p a.embeddedHelpEnabled {
+	background-image: url(../images/icon-help_embedded.gif);
+	background-position: center left;
+	background-repeat: no-repeat;
+	padding-left: 14px;
+	font-weight: normal;
+}
+div.pageAdmin p a.embeddedHelpDisabled {
+	background-image: url(../images/icon-help_embedded.gif);
+	background-position: center left;
+	background-repeat: no-repeat;
+	padding-left: 14px;
+	font-weight: normal;
+}
+

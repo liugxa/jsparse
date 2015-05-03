@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/345/trunk/src/xml/schema
+END
+ApplicationProfile.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/308/trunk/src/xml/schema/ApplicationProfile.xsd
+END
+ApplicationProfile_temp.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/345/trunk/src/xml/schema/ApplicationProfile_temp.xsd
+END
+ApplicationProfile-doc1.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/335/trunk/src/xml/schema/ApplicationProfile-doc1.xsd
+END
+ego.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/324/trunk/src/xml/schema/ego.xsd
+END
+sc.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/335/trunk/src/xml/schema/sc.xsd
+END
+sc1.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/308/trunk/src/xml/schema/sc1.xsd
+END
+ApplicationProfile-doc.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/308/trunk/src/xml/schema/ApplicationProfile-doc.xsd
+END

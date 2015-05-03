@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/351/trunk/src/script
+END
+validate.js
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/344/trunk/src/script/validate.js
+END
+jsdomenu.js
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/346/trunk/src/script/jsdomenu.js
+END
+x-rule.js
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/346/trunk/src/script/x-rule.js
+END
+x-variable.js
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/346/trunk/src/script/x-variable.js
+END
+overlib.js
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/174/trunk/src/script/overlib.js
+END
+FormChek.js
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/220/trunk/src/script/FormChek.js
+END
+x-domtree.js
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/351/trunk/src/script/x-domtree.js
+END
+overlib_mini.js
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/174/trunk/src/script/overlib_mini.js
+END
+build2.py
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/281/trunk/src/script/build2.py
+END
+prototype.js
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/120/trunk/src/script/prototype.js
+END
+x-common.js
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/351/trunk/src/script/x-common.js
+END
+domtree.js
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/351/trunk/src/script/domtree.js
+END
+x-parse.js
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/351/trunk/src/script/x-parse.js
+END
+xmlextras.js
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/120/trunk/src/script/xmlextras.js
+END
+x-context.js
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/350/trunk/src/script/x-context.js
+END

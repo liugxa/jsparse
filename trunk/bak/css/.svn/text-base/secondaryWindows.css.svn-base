@@ -1,0 +1,86 @@
+body {
+	margin: 0;
+	padding: 0px;
+	padding-bottom: 3em;
+	color: #000;
+	background: #fff;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* Format Standard head, with an "h1" and an optional "p" that contains
+   a help link. */
+
+div.popupStandardHead {
+	padding: 0px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+div.popupStandardHead h1 {
+	font-size: .7em;
+	padding: 2px;
+	padding-right: 4px;
+	padding-left: 4px;
+	margin: 0px;
+	margin-bottom: 0px;
+	background-color: #003366;
+	color: #FFFFFF;
+}
+
+div.popupStandardHead p {
+	margin: 0px;
+	padding: 0px;
+	padding-bottom: 5px;
+	text-align: right;
+}
+
+div.popupStandardHead p a {
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+
+/* ------------------------------------------------------------------ */
+/* Format Standard container div for content in popup windows. */
+
+div.popupStandardContent {
+	padding: 10px;
+	padding-top: 0px;
+	margin: 0px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Format buttons for pop-up windows (Search, View, Properties, etc.) */
+
+div.popupStandardWindowControls {
+	margin: 0px !important;
+	margin-top: 1.5em !important;
+	padding: 10px;
+	padding-top: .25em !important;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #000000;
+	position: relative;
+	background-color: #ffffff;
+	z-index: 200;
+}
+
+div.popupStandardWindowControls {
+	overflow: auto;
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+
+div.viewPrefs {
+	padding: 1em;
+}
+
+@media screen {
+	body>div.popupStandardWindowControls
+	{
+		position: fixed;
+	}
+}

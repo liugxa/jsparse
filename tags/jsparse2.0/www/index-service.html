@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<HTML xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+<HEAD>
+<TITLE></TITLE>
+	
+<link REL='Stylesheet' HREF='css/base.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/object-properties.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/configProfileXml.css' TYPE='text/css'/>
+
+
+
+</HEAD>
+<BODY> 
+<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+
+
+<FORM id='myForm'>
+
+  <!-- BEGIN Enable Default Column
+  <label for="showActions" style="font-size: .75em">
+  <input type="checkbox" id="showActions" name="checkbox" value="showActions" onclick="toggleThisColumn(this)" />
+  Show Actions column</label>
+  -- END Enable Default Column -->
+
+
+<div class="objectProps">
+<h1>Service Definition Profile</h1>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  -->
+
+<!-- BEGIN View of Objects -->
+<div id="contentObjectsId" class="appProfileDisplay" style="padding-left: 0px !important">
+  <table id="resourcePlanTable" border="0" cellpadding="0" cellspacing="0">
+        <thead>
+			<tr>
+			  <th scope="col" style="border: medium none ;">&nbsp;</th>
+			  <th scope="col">Name</th>
+			  <th scope="col" class="paramValue">Value</th>
+			  <th scope="col" class="paramValueDefault">Default Value </th>
+
+			  <th scope="col" class="paramRequirements">Requirements</th>
+			  <th scope="col" class="paramSource">Source </th>
+			  <th scope="col" class="paramActions">Actions</th>
+			</tr>
+        </thead>
+
+		<!-- This table information will be printed by schema2HtmlForm.js -->
+		<tbody></tbody>
+	</table>
+</div>
+
+<!-- END View of Objects -->
+
+<DIV class='windowControls'>
+<!--
+<BUTTON id='buttonCreate' onclick='saveHtmlForm()'	name='buttonCreate'>Save</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonCancel'>Revert</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonImport'>Import...</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonExport'>Export...</BUTTON>
+-->
+<BUTTON id='buttonClose'  onclick='self.close()'	name='buttonClose'>Close</BUTTON>
+</DIV>
+
+</DIV>
+<SCRIPT language=JavaScript src="script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/validate.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/overlib_mini.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/domtree.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="js/xmleditor.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="js/xmleditor-functions.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript>
+
+//initilize domtree
+var context = _getContext();
+var domTree = new DefaultDomTree(context);
+domTree.init("sc:ServiceDefinition");
+
+var tbody = document.getElementById("resourcePlanTable").tBodies[0];			
+s2f = new ServiceDefinitionS2H(domTree , tbody);
+s2f.layout();
+
+//*******************************************************************************
+//init methods
+//*******************************************************************************
+function _getContext(){
+
+	var XML_FILE	= "xml/gui_service.xml";
+	var SCHEMA_FILE = "xml/sc.xsd";
+	var SCHEMA_REF_FILE = "xml/ego.xsd";
+
+	var context = new DefaultDomTreeContext(true);
+	context.initilize(XML_FILE , SCHEMA_FILE , "sc" , "xsd");
+	context.addRefParse(SCHEMA_REF_FILE  , "ego" , "xsd");
+	return context;
+}
+
+</SCRIPT>
+
+</FORM>
+<div id="debug"></div>
+</BODY>
+</HTML>

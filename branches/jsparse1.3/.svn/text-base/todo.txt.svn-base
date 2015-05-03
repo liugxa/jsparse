@@ -1,0 +1,88 @@
+2008.9.1
+. add a new method to enable in FF3.0 browser - (getElementsByTagName should refact this method!!)
+	1. modify the "getRuleBySimpleType" method in x-rule.js
+	2. modify the "MultiNSSchemaParse" class's 
+		findRootElement/findElementByName/findSimpleType/findElementChildrenContentRule/findElementChildrenStructRule
+	3. modify the DefaultDomTree class's init/_isElementExist method
+	4. add new method "getElementsByTagName" in x-common.js
+
+. modify the List class in x-common.js - (add new method:removeAll)
+. change the "RULE_VALIDATE_NOT_PATTERN_1" and "RULE_VALIDATE_NOT_PATTERN_2" values in x-variable.js - (128 to 256)
+. change the "PrintableStringRule" method in x-rule.js - (128 to 256)
+. change the "formatData" method in x-common.js - (: character to ;)
+. change the "getRuleByType" in x-rule.js -(support the "nonNegativeInteger" rule)
+
+
+Investigate: SHOULD GIVE THE REASON WHY?!
+. add new field prototype in DomTreeElement class
+. modify the "DefaultDomTree" class (Why?)
+	1. in the "init" method. omit the below code.
+	//add special attributes which be defined in the xml file
+	//like xmlns:/xsi etc.
+	/*
+	var alength = dt_r.attributes.length;
+	var xattrs = root.attributes;
+	for(var i=0;i<xattrs.length;i++){
+		if((/xmlns/.test(xattrs[i].name)) || (/xsi/.test(xattrs[i].name))){
+			var attr = new DomTreeAttribute(alength + i + 1 , xattrs[i].name , xattrs[i].value);
+			attr.display = false;
+			
+			dt_r.addAttribute(attr);
+			attr.setElement(dt_r);
+		}
+	}
+	*/
+	2. add new fields in DefaultDomTree class - root and _this(Why?)
+	3. modify the  _toXml method implementation!
+	4. modify _addChildrens method: set the prototype value
+	5. modify _addChildrens method: remove the formatData method
+	6. add a new metho this.findAllAttributes()!!
+	7. modify the _findAllAttributes implementation!!
+	8. add a new method _getNameSpacePrefix.
+
+. modify the xmleditor.js file
+	1. add new field "expandAll"
+	2. add new method: displayActivityTable
+	3. modify the openElement method- add "_element.setAttributes(domTree.findAllAttributes(_element));"
+	4. modify the _showHelpIcon method - estimate the attribute is null or empty
+	5. modify the _changeAttrStatus method - estimate the attribute is null or not
+	6. modify the _isElementItemExisted method (why?)
+	7. modify the _printElement method(why?)
+	8. modify the _printElementChildrens method(why?)
+	9. modify the _appendLeafElementTd2 method.(format data value)
+	10. modify the _appendAttributeTd2 method.(format data value)
+	11. modify the _appendElementValueTd2 method.(format the data value)
+	12. modify the getInputOfAttribute method. (change the patten)
+	13. modify the _executeSuccess method.(format the data value)
+
+. modify the xmleditor-function.js file
+	1. omit the toggleHelpState method (why?)
+
+. modify the validate.js file
+	1. fix the isNonNegativeInteger method's bug
+	2. add a new method-isHex()
+
+2006.09.06
+.implement the "save" function
+.enhange SingleNSSchemaParse class
+.modify getElementChildrens method : add logic to parse the <xsd:choice> node
+.modify findElementStructRule method: above
+.add a new rule ChoiceOccursRule class
+.modify findElementChildrenStructRule method of SingleNSSchemaParse class
+.add toXml method in the domtree.js
+.modify prototype: if the element has no childrens,do not display the action options
+.add LinkListDomTreeContext class
+.add a property "imagePrefix" in the *Schema2Html
+
+
+
+
+reference
+Schema
+1> http://www.w3.org/TR/xmlschema-2/#normalizedString
+2> http://www.oracle.com/technology/global/cn/pub/articles/srivastava_datatypes.html
+3> http://www-128.ibm.com/developerworks/cn/xml/x-schema/part1/index.html
+4> http://www-128.ibm.com/developerworks/cn/xml/theme/indexcxl.html
+
+Regex
+1> http://www.z6688.com/info/34969-1.htm

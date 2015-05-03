@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<HTML xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+<HEAD>
+<TITLE></TITLE>
+<link REL='Stylesheet' HREF='css/base.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/object-properties.css' TYPE='text/css'/>
+<link REL='Stylesheet' HREF='css/configProfileXml.css' TYPE='text/css'/>
+</HEAD>
+<BODY> 
+
+
+<FORM id='myForm'>
+<div class="objectProps">
+<h1>Application Profile (MultiDerCalc (v1.5))</h1>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  -->
+
+<!-- BEGIN View of Objects -->
+	<div id="serviceErrorMessage" style="color:red"></div>
+	<div id="contentObjectsId" class="appProfileDisplay" style="padding-left: 0px !important; clear: both">
+		<table id="serviceDefinitionProfile" class="appProfileDisplay" border="0" cellpadding="0" cellspacing="0">
+				<thead id="tableHead"></thead>
+				<tbody id="tableBody"></tbody>
+		</table>
+	</div>
+
+<!-- END View of Objects -->
+
+<DIV class='windowControls'>
+<!--
+<BUTTON id='buttonCreate' onclick='saveHtmlForm()'	name='buttonCreate'>Save</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonCancel'>Revert</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonImport'>Import...</BUTTON>
+<BUTTON id='buttonCancel' onclick='self.close()'	name='buttonExport'>Export...</BUTTON>
+-->
+<BUTTON id='buttonClose'  onclick='self.close()'	name='buttonClose'>Close</BUTTON>
+</DIV>
+
+</DIV>
+<SCRIPT language=JavaScript src="script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/validate.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/overlib_mini.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="script/domtree.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="js/xmleditor.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="js/xmleditor-functions.js" type=text/JavaScript></SCRIPT>
+
+<script>
+var s2f = initilize();
+
+//*******************************************************************************
+//init methods
+//*******************************************************************************
+
+function initilize(){
+
+	//initilize domtree
+	//test time
+	var date1 = printCostData(new Date());
+
+	var context = _getContext();
+	var domTree = new DefaultDomTree(context);
+	domTree.init("Profile");
+	
+	//test time
+	var date2 = printCostData(date1);
+
+	var tbody = document.getElementById("contentObjectsId");			
+	s2f = new DefaultSchema2HtmlForm(domTree , tbody , "images/");
+
+	s2f.addNotShowColumns(3);
+	s2f.addNotShowColumns(5);
+
+	s2f.layout(true);
+	//test time
+	var date3 = printCostData(date2);
+
+	return s2f;
+}
+
+function _getContext(){
+	var XML_FILE	= "xml/xml/appsample.xml";
+	var SCHEMA_FILE = "xml/schema/app.xsd";
+
+	var context = new DefaultDomTreeContext(true);
+	context.initilize(XML_FILE , SCHEMA_FILE , "" , "xs");
+	return context;
+}
+
+</script>
+</FORM>
+</BODY>
+</HTML>

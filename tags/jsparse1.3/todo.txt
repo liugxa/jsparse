@@ -1,0 +1,14 @@
+To do list
+
+DomTree:
+1.finish the initTree method.
+2.finish the removeElement method.
+
+Rule:
+1.add other rules.
+2.modify the elementInsert in s2hFunction.js.
+
+
+Element:
+1.delete the "isOpen" property from the Element object. spilth!
+2.redesign the "treeCode" property.It can NOT exhibit the location of the Element object in a tree.

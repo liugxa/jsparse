@@ -1,0 +1,62 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+</HEAD>
+
+
+<BODY>
+<SCRIPT language=JavaScript src="../script/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/validate.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/x-variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-common.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../script/x-parse.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../script/x-reader.js" type=text/JavaScript></SCRIPT>
+</BODY>
+<script>
+//*******************************************************************************
+//Test cases : base on the ApplicationProfile.xsd file
+//*******************************************************************************
+var reader = new DefaultDomTreeReader();
+function _Test(){
+	
+	this.testInit = function(){
+		var fname = "testInit";
+		
+		var xmlFile = "gui-service.xml";
+		var schemaFiles = new Array();
+		schemaFiles.push("../xml/sc.xsd");
+		schemaFiles.push("../xml/ego.xsd");
+
+		reader.init(xmlFile , schemaFiles);
+		
+		if(reader.getDom() == null){
+			_alertFailure(fname , "Dom object is null");
+			return;
+		}
+		if(reader.getParse() == null && reader.getParse().parseMap.size() == 2){
+			_alertFailure(fname , "Parse object is null!");
+			return;
+		}
+		_alertSuccess(fname);
+	}
+
+	
+
+}
+//*******************************************************************************
+//Test runner
+//*******************************************************************************
+autoTest();
+function autoTest(){
+	var test = new _Test();
+	for (var property in test) {
+		if(test[property] instanceof Function){
+			test[property]();
+		}
+	}
+}
+
+</script>
+</HTML>

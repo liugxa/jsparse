@@ -1,0 +1,24 @@
+<HTML xmlns="http://www.w3.org/1999/xhtml">
+<HEAD>
+<TITLE>Platform Cluster: Application Profile</TITLE>
+
+</HEAD>
+
+
+<BODY>
+
+</BODY>
+	
+<!-- Third party -->
+<SCRIPT language=JavaScript src="../js/xmlextras.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../js/validate.js" type=text/JavaScript></SCRIPT>
+
+<!-- Dom tree -->
+<SCRIPT language=JavaScript src="../js/x-collects.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../js/x-common.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../js/x-variable.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../js/x-util.js" type=text/JavaScript></SCRIPT>
+
+<SCRIPT language=JavaScript src="../js/x-schemaParse.js" type=text/JavaScript></SCRIPT>
+<SCRIPT language=JavaScript src="../js/x-domtree.js" type=text/JavaScript></SCRIPT>
+</HTML>

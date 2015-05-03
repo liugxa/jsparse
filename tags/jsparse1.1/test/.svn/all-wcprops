@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/88/tags/jsparse1.1/test
+END
+testSchemaParse.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/88/tags/jsparse1.1/test/testSchemaParse.html
+END
+testDomTree.html
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/88/tags/jsparse1.1/test/testDomTree.html
+END
+testSchema2html.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/88/tags/jsparse1.1/test/testSchema2html.html
+END

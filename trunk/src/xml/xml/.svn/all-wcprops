@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/345/trunk/src/xml/xml
+END
+webgui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/308/trunk/src/xml/xml/webgui.xml
+END
+ApplicationProfile.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/308/trunk/src/xml/xml/ApplicationProfile.xml
+END
+applicationTemplate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/308/trunk/src/xml/xml/applicationTemplate.xml
+END
+symping3.2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/345/trunk/src/xml/xml/symping3.2.xml
+END
+serviceTemplate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/308/trunk/src/xml/xml/serviceTemplate.xml
+END
+gui_service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/308/trunk/src/xml/xml/gui_service.xml
+END
+gui_service_comment.xml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/343/trunk/src/xml/xml/gui_service_comment.xml
+END

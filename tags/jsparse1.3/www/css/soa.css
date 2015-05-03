@@ -1,0 +1,78 @@
+DIV.session-summary TABLE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DIV.session-summary TABLE TH {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 0.6em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #666666; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+DIV.session-summary TABLE TH.path {
+	BORDER-TOP: #666666 1px solid; FONT-SIZE: 0.6em
+}
+DIV.session-summary TABLE TH.group-head {
+	BORDER-RIGHT: #666666 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 0.6em; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #666666 1px solid; COLOR: #333333; PADDING-TOP: 0px; BACKGROUND-COLOR: #e6e6e6; TEXT-ALIGN: left
+}
+DIV.session-summary TABLE TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+DIV.session-summary TABLE TH H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1.5em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+DIV.session-short-summary TABLE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+DIV.session-short-summary TABLE TH {
+	PADDING-RIGHT: 9px; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 0.6em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #666666; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+DIV.session-short-summary TABLE TH.path {
+	BORDER-TOP: #666666 1px solid; FONT-SIZE: 0.6em
+}
+DIV.session-short-summary TABLE TH.group-head {
+	BORDER-RIGHT: #666666 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 0px; FONT-WEIGHT: normal; FONT-SIZE: 0.6em; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #666666 1px solid; COLOR: #333333; PADDING-TOP: 0px; BACKGROUND-COLOR: #e6e6e6; TEXT-ALIGN: left
+}
+DIV.session-short-summary TABLE TD {
+	PADDING-RIGHT: 9px; PADDING-LEFT: 0px; FONT-SIZE: 0.7em; PADDING-BOTTOM: 6px; MARGIN: 0px; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+DIV.session-short-summary TABLE TH H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1.5em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000000; PADDING-TOP: 0px
+}
+TABLE.barchart-state {
+	BORDER-RIGHT: #ffffff 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: #ffffff 1px solid; WIDTH: 50px! important; PADDING-TOP: 0px; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 9px! important
+}
+TABLE.barchart-state TR {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: medium none; PADDING-TOP: 0px; BORDER-BOTTOM: medium none
+}
+TABLE.barchart-state TD {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 0px; BORDER-TOP: medium none; PADDING-LEFT: 0px; FONT-SIZE: 0.5em; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: medium none; PADDING-TOP: 0px; BORDER-BOTTOM: medium none
+}
+TABLE.barchart-state TD.taskstate-cancelled {
+	BACKGROUND-COLOR: #e0b525
+}
+TABLE.barchart-state TD.taskstate-pending {
+	BACKGROUND-COLOR: #e69158
+}
+TABLE.barchart-state TD.taskstate-running {
+	BACKGROUND-COLOR: #639a63
+}
+TABLE.barchart-state TD.taskstate-error {
+	BACKGROUND-COLOR: #ff0000
+}
+TABLE.barchart-state TD.taskstate-done {
+	BACKGROUND-COLOR: #99cedb
+}
+TABLE.barchart-state TD.sessionstate-suspended {
+	BACKGROUND-COLOR: #e69158
+}
+TABLE.barchart-state TD.sessionstate-open {
+	BACKGROUND-COLOR: #639a63
+}
+TABLE.barchart-state TD.sessionstate-aborted {
+	BACKGROUND-COLOR: #ff0000
+}
+TABLE.barchart-state TD.sessionstate-closed {
+	BACKGROUND-COLOR: #99cedb
+}
+TD.thresholdAlert-high {
+	FONT-WEIGHT: bold; COLOR: #990002; BACKGROUND-COLOR: #ffb3b3
+}
+TD.thresholdAlert-medium {
+	FONT-WEIGHT: bold; BACKGROUND-COLOR: #f3da79
+}
