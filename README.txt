@@ -8,4 +8,4 @@ jsparse用来生成符合Schema定义的XML文件。
 jsparse起初的需求是希望在客户端能够根据Schema的定义，动态的生成XML文件。附加的功能：支持XML文件的导入，导出功能。
 
 # unit test
-jsparse 借助unittest.js(url: http://script.aculo.us/)工具完成单元测试。运行test目录下的alltest.html直接查看测试结果。
+jsparse 借助unittest.js (script.aculo.us)工具完成单元测试。运行test目录下的alltest.html直接查看测试结果。
